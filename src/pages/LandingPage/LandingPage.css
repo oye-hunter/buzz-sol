@@ -1,0 +1,45 @@
+
+.blinking-text {
+    animation: blinker 1.8s forwards infinite;
+}
+
+@keyframes blinker {
+    0%, 100% {
+        color: rgb(255, 255, 250); /* Start and end with black */
+    }
+    50% {
+        color: rgb(199, 47, 72); /* Change to the BUZZ color */
+    }
+}
+.bn3 {
+    font-size: 15px;
+    display: inline-block;
+    padding: 0.5em 1.7em;
+    margin: 0 0.1em 0.1em 0;
+    border: 0.16em solid rgb(255, 255, 250);
+    border-radius: 2em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    text-shadow: 0 0.04em 0.04em rgba(255, 255, 250, 0.253);
+    text-align: center;
+    transition: all 0.2s;
+  }
+  
+  .bn3:hover {
+    color: black;
+    background-color: rgb(255, 255, 255);
+  }
+
+@media screen and (max-width: 1024px) {
+    .hero-text {
+        line-height: 50px !important;
+    }
+}
+@media screen and (max-width: 768px) {
+    .hero-text {
+        line-height: 46px !important;
+    }
+}
