@@ -2,7 +2,8 @@ import React from 'react';
 import "./LandingPage.css"
 import About from '../../sections/About/About';
 import Services from '../../sections/Services/Services';
-import Products from '../../sections/Products/Products';
+// import Products from '../../sections/Products/Products';
+import CountUpBar from '../../components/CountUpBar/CountUpBar';
 
 const LandingPage = () => {
   return (
@@ -53,7 +54,8 @@ const LandingPage = () => {
       </div>
       <About/> 
       <Services/> 
-      <Products/>
+      {/* <Products/> */}
+      <CountUpBar/>
     </div>
   );
 };
