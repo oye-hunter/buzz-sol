@@ -1,21 +1,131 @@
-import React from "react";
+import React, { useState } from "react";
 import CustomCalender from "../../components/CustomCalender/CustomCalender";
 import "./BookAppointment.css";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
+import TextField from "@mui/material/TextField";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import InputAdornment from "@mui/material/InputAdornment";
+import Tooltip from "@mui/material/Tooltip"; // Import Tooltip
+
+// Import FontAwesome icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 
 const BookAppointment = () => {
+  // Array for time slots from 10 PM to 3 AM (UTC+5)
+  const timeSlots = [
+    "10 PM (UTC+5)",
+    "11 PM (UTC+5)",
+    "12 AM (UTC+5)",
+    "1 AM (UTC+5)",
+    "2 AM (UTC+5)",
+    "3 AM (UTC+5)",
+  ];
+
+  // State to track selected time
+  const [selectedTime, setSelectedTime] = useState(null);
+
+  const handleTimeClick = (time) => {
+    setSelectedTime(time); // Update selected time when a button is clicked
+  };
+
+  // Custom theme with the color rgb(199, 47, 72)
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "rgb(199, 47, 72)", // Primary color for TextField
+      },
+    },
+  });
+
   return (
     <div className="book-apointment-container">
-      <h3 className="2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl text-2xl text-center font-semibold m-5">
-        Book <span style={{ color: "rgb(199,47,72)" }}>Appointment</span>
+      <h3 className="2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl text-2xl text-center font-semibold mt-5 mb-4">
+        Book An <span style={{ color: "rgb(199,47,72)" }}>Appointment</span>
       </h3>
-      <div className="flex items-center">
-        <CustomCalender />
-        <div className="time-buttons-container flex flex-col">
-        <Button className="time-button" variant="outline-primary">11 PM (UTC+5)</Button>{' '}
-        <Button className="time-button" variant="outline-primary">12 AM (UTC+5)</Button>{' '}
-        <Button className="time-button" variant="outline-primary">01 AM (UTC+5)</Button>{' '}
+      <div className="flex items-center justify-center column-gap-5 row-gap-3 flex-col-reverse lg:flex-row">
+        <ThemeProvider theme={theme}>
+          <div className="flex flex-col row-gap-2">
+            <TextField
+              className="w-[350px]"
+              id="outlined-basic"
+              label="First Name"
+              variant="outlined"
+            />
+            <TextField
+              className="w-[350px]"
+              id="outlined-basic"
+              label="Last Name"
+              variant="outlined"
+            />
+            <TextField
+              className="w-[350px]"
+              id="outlined-basic"
+              label="Email"
+              variant="outlined"
+            />
+            <TextField
+              className="w-[350px]"
+              id="outlined-basic"
+              label="Phone"
+              variant="outlined"
+            />
+
+            {/* Note field with Font Awesome Info icon on the right side */}
+            <TextField
+              className="w-[350px]"
+              id="outlined-note"
+              label="Note"
+              variant="outlined"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    {/* Tooltip for Info Icon */}
+                    <Tooltip
+                      title="Notes To Help Us Prepare For The Meeting?"
+                      arrow
+                    >
+                      <FontAwesomeIcon
+                        icon={faCircleInfo}
+                        style={{ color: "rgb(199, 47, 72)", cursor: "pointer" }}
+                      />
+                    </Tooltip>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </div>
+        </ThemeProvider>
+
+        <div className="flex items-center justify-center flex-col md:flex-row row-gap-3">
+          <CustomCalender />
+          {/* Display the time buttons regardless of date */}
+          <div className="time-buttons-container flex flex-col row-gap-2">
+            <h4 className="text-lg text-center font-semibold text-[#C72F48]">
+              Select Time
+            </h4>
+            {timeSlots.map((time, index) => (
+              <Button
+                key={index}
+                className={`time-button ${
+                  selectedTime === time ? "selected" : ""
+                }`} // Apply 'selected' class if the time is clicked
+                variant="outline-primary"
+                onClick={() => handleTimeClick(time)} // Set the clicked time as selected
+              >
+                {time}
+              </Button>
+            ))}
+          </div>
         </div>
+      </div>
+      <div className="flex justify-center mt-3">
+        <Button
+          className="bg-[#C72F48] hover:bg-[#a92339] border-[#C72F48] hover:border-[#a92339] w-[350px] text-2xl mb-2"
+          variant="primary"
+        >
+          Submit
+        </Button>
       </div>
     </div>
   );
