@@ -3,10 +3,19 @@
 }
 .services-card-container {
   display: grid;
-  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
+  
+  /* Limit max columns to 3 */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  
+  /* Adjust column limit */
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
+
 /* .services-card {
   background-color: #fff;
   padding: 1.5rem;
