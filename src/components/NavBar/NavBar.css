@@ -29,6 +29,10 @@
     font-size: 14px;
     text-decoration: none;
     transition: color 0.3s ease;
+
+    @media (max-width: 991px) {
+        padding-left: 0px !important;        
+    }
 }
 
 .nav-link span {
@@ -76,3 +80,20 @@
 .the-navbar.scrolled .navbar-toggler {
     border-color: #333333; /* Revert to the original color after scrolling */
 }
+/* Style the navbar-toggler (hamburger icon) */
+.navbar-toggler {
+    font-size: 0.875rem; /* Decrease the font size to make the icon smaller */
+}
+
+/* When the navbar is transparent (before scroll) */
+.the-navbar.transparent .navbar-toggler {
+    border-color: white; /* Make the border white */
+    font-size: 0.875rem; /* Smaller icon size */
+}
+
+/* When the navbar is scrolled (after 500px scroll) */
+.the-navbar.scrolled .navbar-toggler {
+    border-color: #333333; /* Revert to the original color after scrolling */
+    font-size: 0.875rem; /* Adjust the size if needed */
+}
+

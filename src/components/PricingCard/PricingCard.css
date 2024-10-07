@@ -1,6 +1,4 @@
-.products-container {
-    margin: 5vh 5vw;
-  }
+
   .products-card-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
