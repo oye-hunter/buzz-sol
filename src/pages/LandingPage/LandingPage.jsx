@@ -22,7 +22,8 @@ const LandingPage = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundImage: `url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
+          // backgroundImage: `url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
+          backgroundImage: `url('https://img.freepik.com/free-vector/circuits-blue-red-gradient-digital-background_23-2148821701.jpg?t=st=1728327630~exp=1728331230~hmac=6c0c1398c6dc655b42b2f62765f33631cf6520bdd8c58895a3f12da9947784c3&w=1380')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: "0.9", // Background opacity
