@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./LandingPage.css"
 import About from '../../sections/About/About';
 import Services from '../../sections/Services/Services';
@@ -48,8 +49,16 @@ const LandingPage = () => {
         fontWeight: "400.5"}}>Where Technology <br/> Meets <span className='blinking-text'>Buzz</span></div>
         <div>
         <div className='d-flex column-gap-3'>
-        <span className="bn3 mt-3">Our Services</span>
-        <span className="bn3 mt-3">Let's Talk</span>
+  <Link to="/services" className="text-decoration-none text-inherit">
+        <span className="bn3 mt-3">
+    Our Services
+</span>
+  </Link>
+  <Link to="/book-an-appointment" className="text-decoration-none text-inherit">
+<span className="bn3 mt-3">
+    Let's Talk
+</span>
+  </Link>
         </div>
         </div>
       </div>

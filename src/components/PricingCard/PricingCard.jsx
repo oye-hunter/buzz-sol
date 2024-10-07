@@ -37,7 +37,7 @@ const PricingCard = () => {
   ];
 
   return (
-    <div className="pricing-card-container">
+    <div className="pricing-card-container my-5">
       <h3 className="2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-semibold mb-3">
         Our <span style={{ color: "rgb(199,47,72)" }}>Services</span>
       </h3>
