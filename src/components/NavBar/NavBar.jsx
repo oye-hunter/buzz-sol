@@ -36,8 +36,8 @@ function NavBar() {
           </Nav.Link>
           <Nav.Link
             as={Link}
-            to="/book-appointment"
-            className={`px-3 ${location.pathname === '/book-appointment' ? 'active' : ''}`}
+            to="/book-an-appointment"
+            className={`px-3 ${location.pathname === '/book-an-appointment' ? 'active' : ''}`}
           >
             <span>Book an Appointment</span>
           </Nav.Link>

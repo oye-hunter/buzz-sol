@@ -15,37 +15,37 @@ const CountUpBar = () => {
                 <div className="countup-item flex flex-col justify-center items-center ">
                     {counterOn && (
                         <p className="countup-value text-2xl font-medium">
-                            <CountUp start={0} end={8200} duration={2} />+
+                            <CountUp start={0} end={10} duration={2} />+
                         </p>
                     )}
-                    <p className="countup-label text-base font-light">Success Stories</p>
+                    <p className="countup-label text-base font-light">Active Employees</p>
                 </div>
                 <div className="countup-separator md:w-[1px] md:h-[40px] w-[40px] h-[1px]" />
                 <div className="countup-item flex flex-col justify-center items-center ">
                     {counterOn && (
                         <p className="countup-value text-2xl font-medium">
-                            <CountUp start={0} end={12200} duration={2} />+
+                            <CountUp start={0} end={25} duration={2} />+
                         </p>
                     )}
-                    <p className="countup-label text-base font-light">Expert Mentors</p>
+                    <p className="countup-label text-base font-light">Active Projects</p>
                 </div>
                 <div className="countup-separator md:w-[1px] md:h-[40px] w-[40px] h-[1px]" />
                 <div className="countup-item flex flex-col justify-center items-center ">
                     {counterOn && (
                         <p className="countup-value text-2xl font-medium">
-                            <CountUp start={0} end={2500} duration={2} />+
+                            <CountUp start={0} end={100} duration={2} />+
                         </p>
                     )}
-                    <p className="countup-label text-base font-light">Hours Course</p>
+                    <p className="countup-label text-base font-light">Completed Projects</p>
                 </div>
                 <div className="countup-separator md:w-[1px] md:h-[40px] w-[40px] h-[1px]" />
                 <div className="countup-item flex flex-col justify-center items-center ">
                     {counterOn && (
                         <p className="countup-value text-2xl font-medium">
-                            <CountUp start={0} end={3000} duration={2} />+
+                            <CountUp start={0} end={30} duration={2} />+
                         </p>
                     )}
-                    <p className="countup-label text-base font-light">Active Students</p>
+                    <p className="countup-label text-base font-light">Returning Clients</p>
                 </div>
             </div>
         </ScrollTrigger>
