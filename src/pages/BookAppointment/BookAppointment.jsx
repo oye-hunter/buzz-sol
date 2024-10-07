@@ -7,6 +7,7 @@ import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import InputAdornment from "@mui/material/InputAdornment";
 import Tooltip from "@mui/material/Tooltip";
+import Footer from '../../components/Footer/Footer';
 
 // Import FontAwesome icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -80,6 +81,7 @@ const BookAppointment = () => {
   });
 
   return (
+    <>
     <div className="book-apointment-container">
       <h3 className="2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl text-2xl text-center font-semibold mt-5 mb-4">
         Book An <span style={{ color: "rgb(199,47,72)" }}>Appointment</span>
@@ -186,6 +188,8 @@ const BookAppointment = () => {
         </div>
       </form>
     </div>
+      <Footer/>
+      </>
   );
 };
 

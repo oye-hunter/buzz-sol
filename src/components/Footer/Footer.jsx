@@ -2,7 +2,7 @@ import React from "react";
 import "./Footer.css";
 const Footer = () => {
   return (
-    <div className="lp-footer p-14 mt-5">
+    <div className="lp-footer p-14">
       <div className="footer-den-info">
         <img src={require("../../assets/buzzsols-logo.png")} className="w-16 mb-2" alt="" />
         <p className="w-full">

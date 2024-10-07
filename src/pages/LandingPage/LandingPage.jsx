@@ -3,6 +3,7 @@ import "./LandingPage.css"
 import About from '../../sections/About/About';
 import Services from '../../sections/Services/Services';
 // import Products from '../../sections/Products/Products';
+import Footer from '../../components/Footer/Footer';
 import CountUpBar from '../../components/CountUpBar/CountUpBar';
 
 const LandingPage = () => {
@@ -56,6 +57,7 @@ const LandingPage = () => {
       <Services/> 
       {/* <Products/> */}
       <CountUpBar/>
+      <Footer/>
     </div>
   );
 };
