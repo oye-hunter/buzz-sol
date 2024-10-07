@@ -1,0 +1,42 @@
+.lp-footer {
+    background-color: rgb(242, 242, 242);
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr;
+    justify-content: space-between;
+    column-gap: 5vw;
+  }
+  a {
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+  }
+  .footer-company,
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-follow-us-logos {
+    display: flex;
+    align-items: center;
+  }
+  .footer-follow-us img {
+    width: 20px;
+    height: 20px;
+    margin-right: 1vw;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .lp-footer {
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+    .lp-footer:nth-child(4) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .footer-links {
+      margin-top: 20px;
+    }
+  }
+  
