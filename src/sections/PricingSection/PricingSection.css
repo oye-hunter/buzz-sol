@@ -1,0 +1,56 @@
+.pricing-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+  
+  /* Limit max columns to 3 */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  
+  /* Adjust column limit */
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pricing-card {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 4px solid #B93D4E; /* Permanent bottom border without transition */
+  overflow: hidden; /* Prevent overflow of the pseudo-element */
+  transition: box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
+}
+
+.pricing-card:hover {
+  /* transform: translateY(-5px);  */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Smooth box-shadow effect on hover */
+}
+
+.price-button {
+  background-color: #C72F48;
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, opacity 0.2s ease-in-out;
+  margin-top: auto;
+  position: relative;
+}
+
+.price-button span {
+  transition: opacity 2s ease-in-out;
+}
+
+.price-button:hover {
+  background-color: #a8283c;
+  transform: translateY(-3px);
+}
+
+.price-button:active {
+  background-color: #8b1e30;
+  transform: translateY(1px);
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "./LandingPage.css"
 import About from '../../sections/About/About';
-import Services from '../../sections/Services/Services';
+import Services from '../../sections/OurServices/OurServices';
 // import Products from '../../sections/Products/Products';
 import Footer from '../../components/Footer/Footer';
 import CountUpBar from '../../components/CountUpBar/CountUpBar';

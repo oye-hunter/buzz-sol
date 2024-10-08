@@ -1,5 +1,5 @@
 import React from 'react';
-import "./PricingCard.css";
+import "./OurServices.css";
 
 const servicesData = [
   {
@@ -28,16 +28,16 @@ const servicesData = [
   }
 ];
 
-const Services = () => {
+const OurServices = () => {
   return (
-    <div className="services-container">
+    <div className="our-services-container">
         <div>
       <h3 className="2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-semibold mb-3">
         Our <span style={{ color: "rgb(199,47,72)" }}>Services</span>
       </h3>
-      <div className="services-card-container">
+      <div className="our-services-card-container">
         {servicesData.map((service, index) => (
-            <div key={index} className="services-card text-center sm:text-xl text-lg flex flex-col justify-center items-center">
+            <div key={index} className="our-services-card text-center sm:text-xl text-lg flex flex-col justify-center items-center">
             <h5>{service.title}</h5>
             <p className="mt-2 text-center font-light sm:text-sm text-xs">{service.description}</p>
           </div>
@@ -48,4 +48,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default OurServices;

@@ -3,10 +3,9 @@ import "./About.css"
 
 const About = () => {
   return (
-    <div className='about-container w-full flex items-center md:justify-between justify-center flex-col md:flex-row md:m-0 my-10 2xl:gap-x-48 lg:gap-x-20 sm:gap-x-10 gap-x-0 gap-y-10'
+    <div className='about-container w-full flex items-center md:justify-between justify-center md:my-28 my-14 flex-col md:flex-row 2xl:gap-x-48 lg:gap-x-20 sm:gap-x-10 gap-x-0 gap-y-10'
     style={{
         padding: "0 5vw",
-      height: "90vh",
     }}
   >
     <div>

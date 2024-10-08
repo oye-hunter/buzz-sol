@@ -1,7 +1,7 @@
-.services-container {
-  margin: 5vh 5vw;
+.our-services-container {
+  margin: 0 5vw;
 }
-.services-card-container {
+.our-services-card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
@@ -28,7 +28,7 @@
   transform: translateY(-5px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 } */
-.services-card {
+.our-services-card {
     position: relative; /* Enable positioning for the pseudo-element */
     background-color: #fff;
     padding: 1.5rem;
@@ -38,7 +38,7 @@
     overflow: hidden; /* Prevent overflow of the pseudo-element */
   }
   
-  .services-card::after {
+  .our-services-card::after {
     content: '';
     position: absolute;
     left: 0;
@@ -50,12 +50,12 @@
     transition: transform 0.4s ease; /* Smooth transition for growing */
   }
   
-  .services-card:hover {
+  .our-services-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
   
-  .services-card:hover::after {
+  .our-services-card:hover::after {
     transform: scaleX(1); /* Grow to full width on hover */
   }
   

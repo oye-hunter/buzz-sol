@@ -1,6 +1,6 @@
 import React from "react";
 import "./Services.css";
-import PricingCard from "../../components/PricingCard/PricingCard";
+import PricingCard from "../../sections/PricingSection/PricingSection";
 import Footer from '../../components/Footer/Footer';
 const Services = () => {
   return (<>

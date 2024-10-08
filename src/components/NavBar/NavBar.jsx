@@ -17,17 +17,26 @@ function NavBar() {
     }
   };
 
+  // Effect to handle scroll changes on the home page
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    if (location.pathname === '/') {
+      window.addEventListener('scroll', handleScroll);
+      setNavbarBackground(window.scrollY > 500); // Set initial background on page load
+    } else {
+      setNavbarBackground(true); // Always apply background for non-home pages
+    }
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [location.pathname]);
 
   return (
     <Navbar
       expand="lg"
-      className={`the-navbar ${navbarBackground ? 'scrolled' : 'transparent'}`}
+      className={`the-navbar ${
+        navbarBackground || location.pathname !== '/' ? 'scrolled' : 'transparent'
+      }`}
       style={{ padding: '20px 5vw', zIndex: '1000' }}
     >
       <Navbar.Brand href="/">
