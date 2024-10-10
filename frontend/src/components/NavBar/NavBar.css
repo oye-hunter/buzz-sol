@@ -1,9 +1,22 @@
 .the-navbar {
-    transition: background-color 0.3s ease, color 0.3s ease;
     position: fixed;
+    top: 0;
     width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
+/* Show the navbar */
+.the-navbar.show {
+    transform: translateY(0);
+}
+
+/* Hide the navbar */
+.the-navbar.hide {
+    transform: translateY(-100%);
+}
+
+/* When the navbar is transparent */
 .the-navbar.transparent .nav-link {
     color: white; /* Make text white when navbar is transparent */
 }
@@ -12,6 +25,7 @@
     background-color: white; /* White underline when transparent */
 }
 
+/* When the navbar is scrolled */
 .the-navbar.scrolled {
     background-color: #F2F2F2; /* Change to your desired background color */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
@@ -26,13 +40,9 @@
 }
 
 .nav-link {
-    font-size: 14px;
-    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
     transition: color 0.3s ease;
-
-    @media (max-width: 991px) {
-        padding-left: 0px !important;        
-    }
 }
 
 .nav-link span {
@@ -61,39 +71,37 @@
     color: #C72F48 !important; /* Active link color */
 }
 
-/* When the navbar is transparent (before scroll) */
+/* Hamburger icon adjustments for different states */
 .the-navbar.transparent .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-/* When the navbar is scrolled (after 500px scroll) */
 .the-navbar.scrolled .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(51,51,51,1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-/* When the navbar is transparent (before scroll) */
-.the-navbar.transparent .navbar-toggler {
-    border-color: white; /* Make the border white */
-}
-
-/* When the navbar is scrolled (after 500px scroll) */
-.the-navbar.scrolled .navbar-toggler {
-    border-color: #333333; /* Revert to the original color after scrolling */
-}
-/* Style the navbar-toggler (hamburger icon) */
 .navbar-toggler {
-    font-size: 0.875rem; /* Decrease the font size to make the icon smaller */
+    border-color: white;
+    font-size: 0.875rem;
 }
 
-/* When the navbar is transparent (before scroll) */
-.the-navbar.transparent .navbar-toggler {
-    border-color: white; /* Make the border white */
-    font-size: 0.875rem; /* Smaller icon size */
-}
-
-/* When the navbar is scrolled (after 500px scroll) */
 .the-navbar.scrolled .navbar-toggler {
-    border-color: #333333; /* Revert to the original color after scrolling */
-    font-size: 0.875rem; /* Adjust the size if needed */
+    border-color: #333333;
+}
+.gradient-button {
+    background: linear-gradient(45deg, #171820, red);
+    font-family: "Roboto", sans-serif; /* Gradient background */
+    color: white; /* Text color */
+    padding: 8px 16px; /* Padding for button */
+    font-size: 16px;
+    
+    border: none; /* Remove default border */
+    border-radius: 14px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.3s ease; /* Smooth transition */
 }
 
+/* Optional: Add hover effect */
+.gradient-button:hover {
+    background: linear-gradient(45deg, red, #171820); /* Reverse gradient on hover */
+}   

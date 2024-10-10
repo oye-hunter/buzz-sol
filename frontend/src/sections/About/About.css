@@ -1,5 +1,6 @@
 @media (max-width: 767px) {
   .about-container {
     height: auto !important;
+    background-color: #171820;
   }
 }
