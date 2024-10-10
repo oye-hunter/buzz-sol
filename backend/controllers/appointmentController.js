@@ -1,5 +1,5 @@
 // controllers/appointmentController.js
-const Appointment = require('./models/Appointment');
+const Appointment = require('../models/Appointment');
 
 // Controller to create a new appointment
 const createAppointment = async (req, res) => {
