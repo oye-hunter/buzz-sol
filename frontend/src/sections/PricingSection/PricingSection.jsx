@@ -6,6 +6,7 @@ const servicesPricingData = [
   {
     title: "Full Stack Development",
     description: "Building robust web applications with both front-end and back-end technologies.",
+    price: 199, 
     details: [
       "Responsive design", 
       "8 hours/day", 
@@ -20,6 +21,7 @@ const servicesPricingData = [
   {
     title: "Mobile App Development",
     description: "Creating user-friendly mobile applications for iOS and Android platforms.",
+    price: 299, 
     details: [
       "Cross-platform compatibility", 
       "Full app deployment", 
@@ -34,6 +36,7 @@ const servicesPricingData = [
   {
     title: "Machine Learning",
     description: "Leveraging algorithms and data to build predictive models and intelligent systems.",
+    price: 399, 
     details: [
       "Model training", 
       "Data preprocessing", 
@@ -48,6 +51,7 @@ const servicesPricingData = [
   {
     title: "GHL Automation",
     description: "Automating processes and workflows using Go High Level for streamlined operations.",
+    price: 149,
     details: [
       "Automated workflows", 
       "Custom pipelines", 
@@ -62,6 +66,7 @@ const servicesPricingData = [
   {
     title: "Video Editing",
     description: "Producing engaging video content with professional editing techniques and tools.",
+    price: 99, 
     details: [
       "Professional editing", 
       "Transitions & effects", 
@@ -76,6 +81,7 @@ const servicesPricingData = [
   {
     title: "Graphic Designing",
     description: "Crafting visually appealing designs for branding, marketing, and more.",
+    price: 89, 
     details: [
       "Logo design", 
       "Custom illustrations", 
@@ -88,11 +94,12 @@ const servicesPricingData = [
     ]
   }
 ];
+
 const PricingSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <div className="my-8 ">
+    <div className="my-8">
       <h3 className="2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-semibold mb-3">
         Services <span style={{ color: "rgb(199,47,72)" }}>Pricing</span>
       </h3>
@@ -127,7 +134,7 @@ const PricingSection = () => {
                 {hoveredIndex === index ? (
                   <span className='text-2xl font-semibold'>Book Now</span>
                 ) : (
-                  <><span className='text-2xl font-semibold'>99</span>$</>
+                  <><span className='text-2xl font-semibold'>{service.price}</span>$</>
                 )}
               </div>
             </Link>
