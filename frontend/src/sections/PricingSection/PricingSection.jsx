@@ -116,7 +116,10 @@ const PricingSection = () => {
               </ul>
             </div>
             <Link 
-              to="/book-an-appointment" 
+              to={{
+                pathname: "/book-an-appointment",
+                state: { serviceTitle: service.title, servicePrice: service.price } // Passing title and price
+              }}
               style={{ 
                 textDecoration: 'none', 
                 color: 'inherit', 
@@ -125,19 +128,20 @@ const PricingSection = () => {
                 alignItems: 'center', 
                 width: '100%' 
               }}
-            >
-              <div 
-                className='price-button w-2/3 rounded-full py-1 my-2 text-center mt-auto'
-                onMouseOver={() => setHoveredIndex(index)}
-                onMouseOut={() => setHoveredIndex(null)}
               >
-                {hoveredIndex === index ? (
-                  <span className='text-2xl font-semibold'>Book Now</span>
-                ) : (
-                  <><span className='text-2xl font-semibold'>{service.price}</span>$</>
-                )}
-              </div>
-            </Link>
+                <div 
+                  className='price-button w-2/3 rounded-full py-1 my-2 text-center mt-auto'
+                  onMouseOver={() => setHoveredIndex(index)}
+                  onMouseOut={() => setHoveredIndex(null)}
+                >
+                  {hoveredIndex === index ? (
+                    <span className='text-2xl font-semibold'>Book Now</span>
+                  ) : (
+                    <><span className='text-2xl font-semibold'>{service.price}</span>$</>
+                  )}
+                </div>
+              </Link>
+
           </div>
         ))}
       </div>
