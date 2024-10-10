@@ -1,26 +1,27 @@
+// server.js
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const cors = require('cors'); // Import the cors package
+const cors = require('cors');
+const appointmentRoutes = require('./routes/appointmentRoutes');
 
-// Initialize environment variables
+// Load environment variables
 dotenv.config();
 
 const app = express();
 
-// Enable CORS
+// Middleware
 app.use(cors());
-
-// Middleware to parse incoming requests
 app.use(express.json());
 
-// Sample Route
-app.get('/', (req, res) => {
-  res.send('API is running...');
-});
+// Routes
+app.use('/api/appointments', appointmentRoutes);
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
