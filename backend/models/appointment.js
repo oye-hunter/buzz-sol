@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 
 // Define the Appointment schema
 const appointmentSchema = new mongoose.Schema({
-  
   serviceName: {
     type: String,
     required: true
@@ -21,7 +20,8 @@ const appointmentSchema = new mongoose.Schema({
     required: true
   },
   note: {
-    type: String
+    type: String,
+    default: ''
   },
   date: {
     type: Date,
@@ -29,7 +29,7 @@ const appointmentSchema = new mongoose.Schema({
   },
   time: {
     type: String,
-    required: true,
+    required: true
   },
   amount: {
     type: Number,
@@ -41,3 +41,4 @@ const appointmentSchema = new mongoose.Schema({
 const Appointment = mongoose.model('Appointment', appointmentSchema);
 
 module.exports = Appointment;
+
