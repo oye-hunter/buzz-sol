@@ -11,8 +11,13 @@ import Tooltip from "@mui/material/Tooltip";
 import Footer from '../../components/Footer/Footer';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import { useLocation } from 'react-router-dom'; // Import useLocation
+import { servicesPricingData } from '../../sections/PricingSection/PricingSection'; 
 
 const BookAppointment = () => {
+  const location = useLocation(); // Get the location object
+  const { serviceTitle } = location.state || {}; // Get the service title from the passed state
+
   // Array for time slots from 10 PM to 3 AM (UTC+5)
   const timeSlots = [
     "10 PM (UTC+5)",
@@ -23,32 +28,31 @@ const BookAppointment = () => {
     "3 AM (UTC+5)",
   ];
 
-  // State to track form input values
   const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(null); // State for selected date
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
     note: "",
-    serviceName: "", // Add serviceName for backend
-    amount: "" // Add amount for backend
+    serviceName: serviceTitle || "", // Populate with received service title
   });
 
-  // Ref for the form
   const formRef = useRef();
 
-  // Handle form input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  // Handle time selection
   const handleTimeClick = (time) => {
     setSelectedTime(time);
   };
 
-  // Send data to the backend
+  const handleDateChange = (date) => {
+    setSelectedDate(date); // Update selected date from the calendar
+  };
+
   const sendDataToBackend = async (appointmentData) => {
     try {
       const response = await axios.post('http://localhost:5000/api/appointments', appointmentData);
@@ -63,43 +67,44 @@ const BookAppointment = () => {
     }
   };
 
-  // Send email function using emailjs
   const sendEmail = (e) => {
     e.preventDefault();
+    
+    // Validate form fields
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.serviceName || !selectedDate || !selectedTime) {
+      alert("Please fill all required fields.");
+      return; // Prevent submission if fields are not filled
+    }
+    const serviceAmount = servicesPricingData.find(service => service.title === formData.serviceName)?.price || 0;
 
-    // Appointment data for backend
     const appointmentData = {
       serviceName: formData.serviceName,
       name: formData.fullName,
       email: formData.email,
       phoneNumber: formData.phone,
       note: formData.note,
-      date: new Date(), // Assuming appointment is booked for the current date
+      date: selectedDate, // Use the selected date from the calendar
       time: selectedTime,
-      amount: formData.amount
+      amount: serviceAmount 
     };
 
-    // Specify the recipients (comma-separated)
-    const recipients = `${formData.email},  hozefarauf@gmail.com`;
-
-    // Data to send to EmailJS
+    const recipients = `${formData.email}, hozefarauf@gmail.com`;
     const templateParams = {
       serviceName: formData.serviceName,
       fullName: formData.fullName,
       email: formData.email,
       phone: formData.phone,
       note: formData.note,
-      date: new Date().toLocaleDateString(),
+      date: selectedDate.toLocaleDateString(), // Format the date
       time: selectedTime,
-      amount: formData.amount,
+      amount: serviceAmount, 
       to_email: recipients
     };
 
-    // Send email with EmailJS using the templateParams
     emailjs
       .send(
         "service_5jc9upo",
-        "template_3qmiclr",  
+        "template_3qmiclr",
         templateParams,
         "02XBjNAd_Wbg_mzrC"
       )
@@ -107,7 +112,6 @@ const BookAppointment = () => {
         (result) => {
           console.log("EmailJS result:", result);
           alert("Appointment successfully booked!");
-          // Save the data to the backend after a successful email
           sendDataToBackend(appointmentData);
         },
         (error) => {
@@ -117,7 +121,6 @@ const BookAppointment = () => {
       );
   };
 
-  // Custom theme with the color rgb(199, 47, 72)
   const theme = createTheme({
     palette: {
       primary: {
@@ -160,23 +163,28 @@ const BookAppointment = () => {
                   value={formData.phone}
                   onChange={handleInputChange}
                 />
+
+                {/* Dropdown for selecting service name */}
                 <TextField
+                  select
                   className="w-[350px]"
-                  label="Service Name"
+                  label="Select Service"
                   name="serviceName"
                   variant="outlined"
                   value={formData.serviceName}
                   onChange={handleInputChange}
-                />
-                <TextField
-                  className="w-[350px]"
-                  label="Amount"
-                  name="amount"
-                  type="number"
-                  variant="outlined"
-                  value={formData.amount}
-                  onChange={handleInputChange}
-                />
+                  SelectProps={{
+                    native: true,
+                  }}
+                >
+                  <option value=""></option>
+                  {servicesPricingData.map((service, index) => (
+                    <option key={index} value={service.title}>
+                      {service.title}
+                    </option>
+                  ))}
+                </TextField>
+
                 <TextField
                   className="w-[350px]"
                   label="Note"
@@ -213,8 +221,7 @@ const BookAppointment = () => {
             </ThemeProvider>
 
             <div className="flex items-center justify-center flex-col md:flex-row row-gap-3">
-              <CustomCalender />
-              {/* Display the time buttons */}
+              <CustomCalender onDateChange={handleDateChange} /> {/* Pass the date change handler */}
               <div className="time-buttons-container flex flex-col row-gap-2">
                 <h4 className="text-lg text-center font-semibold text-[#C72F48]">
                   Select Time

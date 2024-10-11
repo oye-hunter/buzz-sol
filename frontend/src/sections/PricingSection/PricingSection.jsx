@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./PricingSection.css";
 import { Link } from 'react-router-dom';
 
-const servicesPricingData = [
+export const servicesPricingData = [
   {
     title: "Full Stack Development",
     description: "Building robust web applications with both front-end and back-end technologies.",

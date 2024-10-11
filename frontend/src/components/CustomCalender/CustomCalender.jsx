@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import "react-day-picker/dist/style.css";
 import "./CustomCalender.css";
 
-const CustomCalender = () => {
+const CustomCalender = ({ onDateChange }) => { // Accept a prop to handle date changes
   const today = useMemo(() => {
     const date = new Date();
     date.setHours(0, 0, 0, 0); // Ensure we are comparing only the date, not the time
@@ -19,6 +19,9 @@ const CustomCalender = () => {
 
   const handleDateSelect = (date) => {
     setSelected(date);
+    if (onDateChange) {
+      onDateChange(date); // Pass the selected date back to the parent component
+    }
   };
 
   return (
@@ -36,3 +39,4 @@ const CustomCalender = () => {
 };
 
 export default CustomCalender;
+
