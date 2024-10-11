@@ -16,6 +16,8 @@ const LandingPage = () => {
       style={{
         width: "100vw",
         height: "100vh",
+        scrollBehavior: "smooth",
+        
       }}
     >
       <div
@@ -29,7 +31,7 @@ const LandingPage = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: "1", // Background opacity
-          zIndex: "-1",
+          zIndex: "1",
         }}
       ></div>
       
@@ -55,8 +57,8 @@ const LandingPage = () => {
         }}>
           Where Technology <br/> Meets <span className='blinking-text'>Buzz</span>
         </div>
-        <div>
-          <div className='d-flex column-gap-3'>
+        <div style={{zIndex: "1"}}>
+          <div className='d-flex column-gap-3' style={{zIndex: "1"}}>
             <Link to="/services" className="text-decoration-none text-inherit">
               <span className="bn4 mt-3">
                 Our Services

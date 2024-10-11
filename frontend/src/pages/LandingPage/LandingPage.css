@@ -1,4 +1,15 @@
-.blinking-text {
+
+html, body {
+    background-color: #171820;/* Default text color */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+* {
+    margin: 0;
+    padding: 0;
+  }
+  .blinking-text {
     display: inline-block; /* Ensure the element behaves as an inline-block for the animation */
     animation: shake 1s linear infinite; /* Shortened duration for each cycle and infinite repetition */
     animation-iteration-count: 2;
