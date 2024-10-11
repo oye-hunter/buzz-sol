@@ -79,24 +79,40 @@ const BookAppointment = () => {
       amount: formData.amount
     };
 
-    // Send email with the form data and selected time
+    // Specify the recipients (comma-separated)
+    const recipients = `${formData.email},  hozefarauf@gmail.com`;
+
+    // Data to send to EmailJS
+    const templateParams = {
+      serviceName: formData.serviceName,
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      note: formData.note,
+      date: new Date().toLocaleDateString(),
+      time: selectedTime,
+      amount: formData.amount,
+      to_email: recipients
+    };
+
+    // Send email with EmailJS using the templateParams
     emailjs
-      .sendForm(
-        "service_l8i0w1a",
-        "template_3aowuds",
-        formRef.current,
-        "SaZBak-sC_CfhsPe_"
+      .send(
+        "service_5jc9upo",
+        "template_3qmiclr",  
+        templateParams,
+        "02XBjNAd_Wbg_mzrC"
       )
       .then(
-        () => {
-          console.log("SUCCESS!");
+        (result) => {
+          console.log("EmailJS result:", result);
           alert("Appointment successfully booked!");
           // Save the data to the backend after a successful email
           sendDataToBackend(appointmentData);
         },
         (error) => {
-          console.log("FAILED...", error.text);
-          alert("Failed to book the appointment. Please try again.");
+          console.error("EmailJS error:", error);
+          alert("Failed to send the email. Please try again.");
         }
       );
   };

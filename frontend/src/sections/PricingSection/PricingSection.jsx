@@ -6,45 +6,45 @@ const servicesPricingData = [
   {
     title: "Full Stack Development",
     description: "Building robust web applications with both front-end and back-end technologies.",
-    price: 199, 
+    price: 199,
     details: [
-      "Responsive design", 
-      "8 hours/day", 
-      "Deployment", 
-      "Customize", 
-      "API integration", 
-      "Database setup", 
-      "Security & Authentication", 
+      "Responsive design",
+      "8 hours/day",
+      "Deployment",
+      "Customize",
+      "API integration",
+      "Database setup",
+      "Security & Authentication",
       "Performance optimization"
     ]
   },
   {
     title: "Mobile App Development",
     description: "Creating user-friendly mobile applications for iOS and Android platforms.",
-    price: 299, 
+    price: 299,
     details: [
-      "Cross-platform compatibility", 
-      "Full app deployment", 
-      "API integration", 
-      "Push notifications", 
-      "App store submission", 
-      "Offline functionality", 
-      "User authentication", 
+      "Cross-platform compatibility",
+      "Full app deployment",
+      "API integration",
+      "Push notifications",
+      "App store submission",
+      "Offline functionality",
+      "User authentication",
       "In-app purchases"
     ]
   },
   {
     title: "Machine Learning",
     description: "Leveraging algorithms and data to build predictive models and intelligent systems.",
-    price: 399, 
+    price: 399,
     details: [
-      "Model training", 
-      "Data preprocessing", 
-      "AI integrations", 
-      "Custom ML solutions", 
-      "Predictive analytics", 
-      "Deep learning models", 
-      "Data visualization", 
+      "Model training",
+      "Data preprocessing",
+      "AI integrations",
+      "Custom ML solutions",
+      "Predictive analytics",
+      "Deep learning models",
+      "Data visualization",
       "Cloud-based deployment"
     ]
   },
@@ -53,43 +53,43 @@ const servicesPricingData = [
     description: "Automating processes and workflows using Go High Level for streamlined operations.",
     price: 149,
     details: [
-      "Automated workflows", 
-      "Custom pipelines", 
-      "CRM integration", 
-      "Reports & analytics", 
-      "Email marketing automation", 
-      "SMS campaigns", 
-      "Appointment scheduling", 
+      "Automated workflows",
+      "Custom pipelines",
+      "CRM integration",
+      "Reports & analytics",
+      "Email marketing automation",
+      "SMS campaigns",
+      "Appointment scheduling",
       "Funnel management"
     ]
   },
   {
     title: "Video Editing",
     description: "Producing engaging video content with professional editing techniques and tools.",
-    price: 99, 
+    price: 99,
     details: [
-      "Professional editing", 
-      "Transitions & effects", 
-      "4K resolution", 
-      "Color grading", 
-      "Audio synchronization", 
-      "Motion graphics", 
-      "Storyboarding", 
+      "Professional editing",
+      "Transitions & effects",
+      "4K resolution",
+      "Color grading",
+      "Audio synchronization",
+      "Motion graphics",
+      "Storyboarding",
       "Video optimization for platforms"
     ]
   },
   {
     title: "Graphic Designing",
     description: "Crafting visually appealing designs for branding, marketing, and more.",
-    price: 89, 
+    price: 89,
     details: [
-      "Logo design", 
-      "Custom illustrations", 
-      "Branding", 
-      "Marketing materials", 
-      "Social media assets", 
-      "UI/UX design", 
-      "Packaging design", 
+      "Logo design",
+      "Custom illustrations",
+      "Branding",
+      "Marketing materials",
+      "Social media assets",
+      "UI/UX design",
+      "Packaging design",
       "Typography"
     ]
   }
@@ -128,20 +128,19 @@ const PricingSection = () => {
                 alignItems: 'center', 
                 width: '100%' 
               }}
+            >
+              <div 
+                className='price-button w-2/3 rounded-full py-1 my-2 text-center mt-auto'
+                onMouseOver={() => setHoveredIndex(index)}
+                onMouseOut={() => setHoveredIndex(null)}
               >
-                <div 
-                  className='price-button w-2/3 rounded-full py-1 my-2 text-center mt-auto'
-                  onMouseOver={() => setHoveredIndex(index)}
-                  onMouseOut={() => setHoveredIndex(null)}
-                >
-                  {hoveredIndex === index ? (
-                    <span className='text-2xl font-semibold'>Book Now</span>
-                  ) : (
-                    <><span className='text-2xl font-semibold'>{service.price}</span>$</>
-                  )}
-                </div>
-              </Link>
-
+                {hoveredIndex === index ? (
+                  <span className='text-2xl font-semibold'>Book Now</span>
+                ) : (
+                  <><span className='text-2xl font-semibold'>{service.price}</span>$</>
+                )}
+              </div>
+            </Link>
           </div>
         ))}
       </div>
