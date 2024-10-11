@@ -4,3 +4,24 @@
     background-color: #171820;
   }
 }
+.read-more-button {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  background: linear-gradient(45deg, red, #171820);
+  color: #ffffff;
+  border: none;
+  border-radius: 2em;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.read-more-button:hover {
+  background: linear-gradient(45deg, #171820, red);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
