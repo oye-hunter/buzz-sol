@@ -1,11 +1,13 @@
 .our-services-container {
   margin: 0 5vw;
+  background-color: #171820;
 }
 .our-services-card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
+  background-color: #171820;
   
   /* Limit max columns to 3 */
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
