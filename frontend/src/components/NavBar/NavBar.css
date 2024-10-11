@@ -27,7 +27,7 @@
 
 /* When the navbar is scrolled */
 .the-navbar.scrolled {
-    background-color: #F2F2F2; /* Change to your desired background color */
+    background-color: #171820; /* Change to your desired background color */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
 }
 
@@ -40,7 +40,7 @@
 }
 
 .nav-link {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     transition: color 0.3s ease;
 }
