@@ -13,7 +13,7 @@ const About = () => {
         position: 'relative',
       }}
     >
-      <div style={{ maxWidth: '600px', marginBottom: '20px' }}>
+      <div className='border1' style={{ maxWidth: '600px', marginBottom: '20px'}}>
         <h3
           className='text-title'
           style={{
@@ -40,20 +40,20 @@ const About = () => {
         >
           We fuse innovation with energy, delivering cutting-edge technology that creates a buzz in the digital world. Our solutions are designed to power businesses forward, transforming ideas into impactful realities.
         </p>
-        <div style={{zIndex: "1"}}>
-          <div className='d-flex column-gap-3' style={{zIndex: "1"}}>
+          <div className='read-more-button'>
             <Link to="https://www.linkedin.com/company/buzz-sol" className="text-decoration-none text-inherit">
-              <span className="bn4 mt-3">
+              <span>
                 Discover More
               </span>
             </Link>
           </div>
-        </div>
+        
       </div>
-      <div style={{ position: 'relative', display: 'inline-block' }}>
+      <div style={{ position: 'relative', display: 'inline-block', borderRadius: '20em' }}>
         <img
           src={myGif}
           style={{
+            borderRadius: '20%',
             width: '550px', // Set a fixed width
             height: 'auto', // Maintain aspect ratio
             objectFit: 'cover',
