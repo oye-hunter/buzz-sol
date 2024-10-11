@@ -75,6 +75,7 @@ const BookAppointment = () => {
       alert("Please fill all required fields.");
       return; // Prevent submission if fields are not filled
     }
+
     const serviceAmount = servicesPricingData.find(service => service.title === formData.serviceName)?.price || 0;
 
     const appointmentData = {
@@ -85,7 +86,7 @@ const BookAppointment = () => {
       note: formData.note,
       date: selectedDate, // Use the selected date from the calendar
       time: selectedTime,
-      amount: serviceAmount 
+      amount: serviceAmount // Get the price based on the selected service
     };
 
     const recipients = `${formData.email}, hozefarauf@gmail.com`;
@@ -97,7 +98,7 @@ const BookAppointment = () => {
       note: formData.note,
       date: selectedDate.toLocaleDateString(), // Format the date
       time: selectedTime,
-      amount: serviceAmount, 
+      amount: serviceAmount, // Include amount in the email
       to_email: recipients
     };
 

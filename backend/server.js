@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const appointmentRoutes = require('./routes/appointmentRoutes');
+const availabilityRoutes = require('./routes/availabilityRoutes');
 
 // Load environment variables
 dotenv.config();
@@ -13,6 +14,8 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+app.use('/api', availabilityRoutes);
 
 // Routes
 app.use('/api/appointments', appointmentRoutes);
