@@ -18,7 +18,7 @@ const BookAppointment = () => {
   const location = useLocation(); // Get the location object
   const { serviceTitle } = location.state || {}; // Get the service title from the passed state
 
-  // Array for time slots from 10 PM to 3 AM (UTC+5)
+  
   const timeSlots = [
     "10 PM (UTC+5)",
     "11 PM (UTC+5)",
@@ -72,7 +72,7 @@ const BookAppointment = () => {
     
     // Validate form fields
     if (!formData.fullName || !formData.email || !formData.phone || !formData.serviceName || !selectedDate || !selectedTime) {
-      alert("Please fill all required fields.");
+      alert("Please fill all required fields");
       return; // Prevent submission if fields are not filled
     }
 
