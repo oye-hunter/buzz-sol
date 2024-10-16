@@ -6,16 +6,20 @@
     justify-content: space-between;
     column-gap: 5vw;
   }
+  
   a {
     font-size: 13px;
     text-decoration: none;
     color: white;
   }
+ 
   .footer-company,
   .footer-links {
     display: flex;
     flex-direction: column;
   }
+  
+
   .footer-follow-us-logos {
     display: flex;
     align-items: center;
@@ -24,6 +28,9 @@
     width: 20px;
     height: 20px;
     margin-right: 1vw;
+  }
+  .footer-links a:hover {
+    color: #c92d45; /* Change to red on hover */
   }
   
   @media only screen and (max-width: 600px) {
