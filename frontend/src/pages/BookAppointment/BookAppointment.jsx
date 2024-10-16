@@ -150,15 +150,15 @@ const BookAppointment = () => {
   return (
     <>
       <div className="book-apointment-container">
-        <h3 className="2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl text-2xl text-center font-semibold mt-5 mb-4">
+        <h3 className="2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl text-2xl text-center font-semibold mt-5 mb-4 text-white">
           Book An <span style={{ color: "rgb(199,47,72)" }}>Appointment</span>
         </h3>
         <form ref={formRef} onSubmit={sendEmail}>
-          <div className="flex items-center justify-center column-gap-5 row-gap-3 flex-col-reverse lg:flex-row">
+          <div className="flex items-center justify-center column-gap-5 row-gap-3 flex-col-reverse lg:flex-row text-white">
             <ThemeProvider theme={theme}>
-              <div className="flex flex-col row-gap-2">
+              <div className="flex flex-col row-gap-2 text-white">
                 <TextField
-                  className="w-[350px]"
+                  className="w-[350px] text-white"
                   label="Full Name"
                   name="fullName"
                   variant="outlined"
