@@ -17,9 +17,8 @@ const LandingPage = () => {
         width: "100vw",
         height: "100vh",
         scrollBehavior: "smooth",
-        
       }}
-    >
+      >
       <div
         style={{
           position: "absolute",
