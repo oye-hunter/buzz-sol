@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from 'axios'; // Import Axios
 import emailjs from "@emailjs/browser"; // Import emailjs
 import CustomCalender from "../../components/CustomCalender/CustomCalender";
@@ -18,7 +18,6 @@ const BookAppointment = () => {
   const location = useLocation(); // Get the location object
   const { serviceTitle } = location.state || {}; // Get the service title from the passed state
 
-  // Array for time slots from 10 PM to 3 AM (UTC+5)
   const timeSlots = [
     "10 PM (UTC+5)",
     "11 PM (UTC+5)",
@@ -30,6 +29,7 @@ const BookAppointment = () => {
 
   const [selectedTime, setSelectedTime] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null); // State for selected date
+  const [availableTimeSlots, setAvailableTimeSlots] = useState(timeSlots); // State for available time slots
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -39,6 +39,23 @@ const BookAppointment = () => {
   });
 
   const formRef = useRef();
+
+  // Function to fetch available time slots for the selected date
+  const fetchAvailableTimeSlots = async (selectedDate) => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/available-times', {
+        params: { date: selectedDate }
+      });
+
+      if (response.status === 200) {
+        setAvailableTimeSlots(response.data.availableTimes);
+      } else {
+        alert('Failed to fetch available time slots. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error fetching available time slots:', error);
+    }
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -50,7 +67,8 @@ const BookAppointment = () => {
   };
 
   const handleDateChange = (date) => {
-    setSelectedDate(date); // Update selected date from the calendar
+    setSelectedDate(date);
+    fetchAvailableTimeSlots(date); // Fetch available time slots for the selected date
   };
 
   const sendDataToBackend = async (appointmentData) => {
@@ -70,9 +88,8 @@ const BookAppointment = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     
-    // Validate form fields
     if (!formData.fullName || !formData.email || !formData.phone || !formData.serviceName || !selectedDate || !selectedTime) {
-      alert("Please fill all required fields.");
+      alert("Please fill all required fields");
       return; // Prevent submission if fields are not filled
     }
 
@@ -84,9 +101,9 @@ const BookAppointment = () => {
       email: formData.email,
       phoneNumber: formData.phone,
       note: formData.note,
-      date: selectedDate, // Use the selected date from the calendar
+      date: selectedDate,
       time: selectedTime,
-      amount: serviceAmount // Get the price based on the selected service
+      amount: serviceAmount
     };
 
     const recipients = `${formData.email}, hozefarauf@gmail.com`;
@@ -96,9 +113,9 @@ const BookAppointment = () => {
       email: formData.email,
       phone: formData.phone,
       note: formData.note,
-      date: selectedDate.toLocaleDateString(), // Format the date
+      date: selectedDate.toLocaleDateString(),
       time: selectedTime,
-      amount: serviceAmount, // Include amount in the email
+      amount: serviceAmount,
       to_email: recipients
     };
 
@@ -165,7 +182,6 @@ const BookAppointment = () => {
                   onChange={handleInputChange}
                 />
 
-                {/* Dropdown for selecting service name */}
                 <TextField
                   select
                   className="w-[350px]"
@@ -212,7 +228,6 @@ const BookAppointment = () => {
                     ),
                   }}
                 />
-                {/* Hidden field to include selected time */}
                 <input
                   type="hidden"
                   name="selected_time"
@@ -222,12 +237,12 @@ const BookAppointment = () => {
             </ThemeProvider>
 
             <div className="flex items-center justify-center flex-col md:flex-row row-gap-3">
-              <CustomCalender onDateChange={handleDateChange} /> {/* Pass the date change handler */}
+              <CustomCalender onDateChange={handleDateChange} />
               <div className="time-buttons-container flex flex-col row-gap-2">
                 <h4 className="text-lg text-center font-semibold text-[#C72F48]">
                   Select Time
                 </h4>
-                {timeSlots.map((time, index) => (
+                {availableTimeSlots.map((time, index) => (
                   <Button
                     key={index}
                     className={`time-button ${
