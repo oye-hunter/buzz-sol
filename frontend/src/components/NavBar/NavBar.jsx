@@ -88,7 +88,7 @@ function NavBar() {
               to="/contact-us"
               className="px-3"
             >
-              <button className="btn gradient-button-2">Contact</button>
+              <button className="btn gradient-button">Contact</button>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
