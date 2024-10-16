@@ -4,7 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    
+
 }
 body{
     overflow-x: hidden;
@@ -70,13 +70,37 @@ body{
     color: #ffffff;
     text-shadow: 0 0.04em 0.04em rgba(255, 255, 250, 0.253);
     text-align: center;
-    transition: all 0.2s;
-  }
-  
-  .bn4:hover {
-    background: linear-gradient(45deg, #171820, #ff0000);
-    background-color: rgb(255, 255, 255);
-  }
+    transition: background 0.3s ease; /* Smooth transition */
+}
+/* Button text effect */
+.bn4::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.3), rgba(255, 0, 0, 0) 70%);
+    transition: all 0.5s;
+    opacity: 0;
+    z-index: -1;
+}
+
+/* Hover effect */
+.bn4:hover::before {
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
+
+
+/* Click effect */
+.bn4:active {
+    transform: scale(0.95); /* Scale down slightly on click */
+    background: linear-gradient(45deg, #8b0000, #1e1e21); /* Darken gradient slightly */
+}
+
+ 
   
 
 @media screen and (max-width: 1024px) {
