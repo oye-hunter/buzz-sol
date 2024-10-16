@@ -232,7 +232,7 @@ const BookAppointment = () => {
                 >
                   <option value=""></option>
                   {servicesPricingData.map((service, index) => (
-                    <option key={index} value={service.title}>
+                    <option key={index} value={service.title} style={{color:'white' , backgroundColor: '#171820'}}>
                       {service.title}
                     </option>
                   ))}
