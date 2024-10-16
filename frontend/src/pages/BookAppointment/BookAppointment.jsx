@@ -75,7 +75,7 @@ const BookAppointment = () => {
     try {
       const response = await axios.post('http://localhost:5000/api/appointments', appointmentData);
       if (response.status === 201) {
-        alert("Appointment successfully booked ");
+        alert("Appointment successfully booked");
       } else {
         alert("Failed to book the appointment. Please try again.");
       }
