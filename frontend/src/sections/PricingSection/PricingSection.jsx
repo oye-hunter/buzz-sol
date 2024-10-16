@@ -26,7 +26,7 @@ export const servicesPricingData = [
     price: 299,
     icon: <FaMobileAlt />, // Add the icon here
     details: [
-      "Cross-platform compatibility",
+      "Cross-platform",
       "Full app deployment",
       "API integration",
       "Push notifications",
