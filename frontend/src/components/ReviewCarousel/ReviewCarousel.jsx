@@ -5,7 +5,7 @@ import './ReviewCarousel.css';
 import JohnDoeImage from '../../assets/cameron.jpeg';
 import karl from '../../assets/karl.jpeg';
 import richard from '../../assets/richard.jpg';
-import jon from '../../assets/jonatthon.jpeg';// Create a CSS file for custom styles
+import jon from '../../assets/jonatthon.jpeg';
 
 const reviews = [
     {
@@ -16,22 +16,22 @@ const reviews = [
     {
       name: "SF Traders Company",
       review: "The website they developed for us is fantastic! It's visually appealing, fast, and user-friendly, which has drastically improved our online presence. The development team listened carefully to our requirements and executed them perfectly, incorporating great design elements and modern functionality. Our customers love the new look, and we've seen a significant increase in traffic and conversions.",
-      image: "../../assets/buzzsols-logo-white.png", // Replace with the actual path to the image
+      image: "../../assets/buzzsols-logo-white.png",  
     },
     {
       name: "Karl Krummenacher",
       review: "This mobile app has changed the game for us. The interface is intuitive and the performance is incredibly smooth. From user onboarding to daily tasks, everything is seamless, making it a favorite among our users. The development team did a fantastic job incorporating feedback, and the end result is a high-quality app that exceeded our expectations!",
-      image: karl, // Replace with the actual path to the image
+      image: karl,  
     },
     {
       name: "Richard Regaldo",
       review: "Their marketing expertise has significantly boosted our brand's visibility. The campaigns are creative, targeted, and have consistently delivered outstanding results. Their understanding of the latest digital marketing trends helped us tap into new markets and grow our customer base. Truly a great partner for scaling any business!",
-      image: richard, // Replace with the actual path to the image
+      image: richard,  
     },
     {
         name: "Jonathan Patton",
         review: "Their ML solutions have been a game-changer for us. They helped us implement predictive analytics that not only improved our decision-making but also optimized key business processes. The algorithms they developed are accurate and have provided insights that were previously inaccessible. A fantastic team with deep expertise in machine learning and data science",
-        image: jon, // Replace with the actual path to the image
+        image: jon, 
     },
 
   ];
