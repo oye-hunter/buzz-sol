@@ -53,7 +53,7 @@ const reviews = [
           Our <span style={{ color: "rgb(199,47,72)" }}>Reviews</span>
         </h3>
         <div className="review-carousel">
-          <h2 className="text-center text-white heading">Customer Reviews</h2>
+          <h2 className="text-center text-white heading geo">Customer Reviews</h2>
           <Slider {...settings}>
             {reviews.map((review, index) => (
               <div key={index} className="review-slide">
