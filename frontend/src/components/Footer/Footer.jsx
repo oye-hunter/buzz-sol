@@ -45,15 +45,24 @@ const Footer = () => {
           Follow Us
         </h5>
         <div>
-        <div className='my-2 mt-3 text-sm'>
-        <i class="fa-solid fa-envelope mr-1" style={{color: "rgb(199, 47, 72)"}}></i> buzzsols1122@gmail.com
-        </div>
-        <div className='my-2 text-sm'>
-        <i class="fa-solid fa-phone mr-1" style={{color: "rgb(199, 47, 72)"}}></i> +92 321 5211814
-        </div>
-        <div className='my-2 text-sm'>
-        <i class="fa-brands fa-linkedin mr-1" style={{color: "rgb(199, 47, 72)"}}></i> <a style={{color:"white", fontSize: "inherit"}} href="www.linkedin.com/company/buzz-sol/">Buzz Solutions</a>
-      </div>
+          <div
+            className="my-2 mt-3 text-sm cursor-pointer"
+            onClick={() => handleCopy("buzzsols1122@gmail.com")}
+          >
+            <i className="fa-solid fa-envelope mr-1" style={{ color: "rgb(199, 47, 72)" }}></i> buzzsols1122@gmail.com
+          </div>
+          <div
+            className="my-2 text-sm cursor-pointer"
+            onClick={() => handleCopy("+92 321 5211814")}
+          >
+            <i className="fa-solid fa-phone mr-1" style={{ color: "rgb(199, 47, 72)" }}></i> +92 321 5211814
+          </div>
+          <div className="my-2 text-sm">
+            <i className="fa-brands fa-linkedin mr-1" style={{ color: "rgb(199, 47, 72)" }}></i>
+            <a style={{ color: "white", fontSize: "inherit" }} href="https://www.linkedin.com/company/buzz-sol/" target="_blank" rel="noopener noreferrer">
+              Buzz Solutions
+            </a>
+          </div>
         </div>
       </div>
       <ToastContainer /> {/* ToastContainer to display notifications */}
