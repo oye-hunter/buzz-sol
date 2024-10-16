@@ -57,7 +57,7 @@ body{
     background-color: rgb(255, 255, 255);
   }
   .bn4 {
-    background: linear-gradient(45deg, red, #171820);
+    background: linear-gradient(45deg, rgb(199, 47, 72), rgb(120, 27, 43));
     font-size: 20px;
     display: inline-block;
     padding: 0.5em 1.7em;
@@ -72,7 +72,9 @@ body{
     text-align: center;
     transition: background 0.3s ease; /* Smooth transition */
 }
-
+.bn4:hover {
+    background: linear-gradient(45deg, rgb(120, 27, 43), rgb(199, 47, 72)); /* Reverse gradient on hover */
+}  
 
  
   
