@@ -22,13 +22,13 @@
 }
 
 .the-navbar.transparent .nav-link span::after {
-    background-color: white; /* White underline when transparent */
+    background-color: #C72F48; /* White underline when transparent */
 }
 
 /* When the navbar is scrolled */
 .the-navbar.scrolled {
-    background-color: #171820; /* Change to your desired background color */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
+     /* Change to your desired background color */
+     /* Optional shadow */
 }
 
 .the-navbar.scrolled .nav-link {
