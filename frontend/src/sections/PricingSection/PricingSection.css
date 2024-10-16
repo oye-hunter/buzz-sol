@@ -13,21 +13,32 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+@keyframes backgroundTransition {
+  0% {
+    background: rgb(24, 36, 49);
+  }
+  100% {
+    background: linear-gradient(45deg, #171820, rgb(199, 47, 72));
+  }
+}
 
 .pricing-card {
+  background: rgb(24, 36, 49);
   border-radius: 10px;
   border-color: #8b1e30;
   box-shadow: 10px 10px 10px rgba(177, 18, 18, 0.1);
   border-bottom: 4px solid #B93D4E; /* Permanent bottom border without transition */
   overflow: hidden; /* Prevent overflow of the pseudo-element */
-  transition: transform 0.3s ease-in-out; /* Smooth transition for transform and box-shadow */
+  transition: transform 0.3s ease-in-out; /* Smooth transition for box-shadow */
 }
 
 .pricing-card:hover {
-  /* transform: translateY(-5px);  */
+  animation: backgroundTransition 0.4s ease-out; /* Apply the background transition on hover */
+  background: linear-gradient(45deg, #171820, rgb(199, 47, 72));
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   transform: scale(1.1); /* Smooth box-shadow effect on hover */
 }
+
 
 .price-button {
   background-color: #C72F48;

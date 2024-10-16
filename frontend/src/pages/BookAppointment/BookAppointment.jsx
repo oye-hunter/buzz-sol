@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from 'react-router-dom'; // Import useLocation
 import { servicesPricingData } from '../../sections/PricingSection/PricingSection'; 
+// import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const BookAppointment = () => {
   const location = useLocation(); // Get the location object
@@ -75,7 +76,7 @@ const BookAppointment = () => {
     try {
       const response = await axios.post('http://localhost:5000/api/appointments', appointmentData);
       if (response.status === 201) {
-        alert("Appointment successfully booked and saved to the database!");
+        alert("Appointment successfully booked");
       } else {
         alert("Failed to book the appointment. Please try again.");
       }
@@ -145,11 +146,46 @@ const BookAppointment = () => {
         main: "rgb(199, 47, 72)",
       },
     },
+    components: {
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: '#b1b1b1', // Set border color to white when inactive
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'rgb(199, 47, 72)', // Set border color when hovered
+            },
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'rgb(199, 47, 72)', // Set border color when focused
+            },
+            color: 'whitesmoke', // Text color inside input
+            backgroundColor: 'rgb(23, 24, 32) !important', // Ensure background stays transparent
+          },
+          input: {
+            '&:-webkit-autofill': {
+              WebkitBoxShadow: '0 0 0 100px rgb(23, 24, 32) inset !important', // Transparent background for autofill
+              WebkitTextFillColor: 'whitesmoke !important', // Autofill text color
+            },
+          },
+        },
+      },
+      MuiInputLabel: {
+        styleOverrides: {
+          root: {
+            color: 'whitesmoke', // Set label color to white when inactive
+            '&.Mui-focused': {
+              color: 'rgb(199, 47, 72)', // Set label color when focused
+            },
+          },
+        },
+      },
+    },
   });
 
   return (
     <>
-      <div className="book-apointment-container">
+      <div className="book-apointment-container" style={{color: "white"}}>
         <h3 className="2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl text-2xl text-center font-semibold mt-5 mb-4 text-white">
           Book An <span style={{ color: "rgb(199,47,72)" }}>Appointment</span>
         </h3>
