@@ -29,7 +29,7 @@ function NavBar() {
       lastScrollY.current = window.scrollY; // Update the lastScrollY ref
     };
 
-    if (location.pathname === '/') {
+    if (location.pathname === '/'||'/services'||'/book-an-appointment'||'/contact-us' ) {
       window.addEventListener('scroll', handleScroll);
       setNavbarBackground(window.scrollY > 500); // Set initial background on page load
     } else {

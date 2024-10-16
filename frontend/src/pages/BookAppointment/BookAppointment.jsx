@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from 'axios'; // Import Axios
 import emailjs from "@emailjs/browser"; // Import emailjs
 import CustomCalender from "../../components/CustomCalender/CustomCalender";
@@ -13,6 +13,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from 'react-router-dom'; // Import useLocation
 import { servicesPricingData } from '../../sections/PricingSection/PricingSection'; 
+import AOS from "aos"; 
+import "aos/dist/aos.css";
 // import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const BookAppointment = () => {
@@ -183,16 +185,20 @@ const BookAppointment = () => {
     },
   });
 
+  useEffect(() => {
+    AOS.init()
+  }, []);
+
   return (
     <>
       <div className="book-apointment-container" style={{color: "white"}}>
-        <h3 className="2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl text-2xl text-center font-semibold mt-5 mb-4 text-white">
+        <h3 data-aos="fade-down" data-aos-duration="1800" data-aos-easing="ease-out-back" className="2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl text-2xl text-center font-semibold mt-4 mb-4 text-white">
           Book An <span style={{ color: "rgb(199,47,72)" }}>Appointment</span>
         </h3>
         <form ref={formRef} onSubmit={sendEmail}>
-          <div className="flex items-center justify-center column-gap-5 row-gap-3 flex-col-reverse lg:flex-row text-white">
+          <div className="flex items-center justify-evenly column-gap-5 row-gap-3 flex-col-reverse lg:flex-row text-white pt-2">
             <ThemeProvider theme={theme}>
-              <div className="flex flex-col row-gap-2 text-white">
+              <div data-aos="fade-right" data-aos-duration="1800" data-aos-easing="ease-out-back" className="flex flex-col row-gap-2 text-white">
                 <TextField
                   className="w-[350px] text-white"
                   label="Full Name"
@@ -272,7 +278,7 @@ const BookAppointment = () => {
               </div>
             </ThemeProvider>
 
-            <div className="flex items-center justify-center flex-col md:flex-row row-gap-3">
+            <div data-aos="fade-left" data-aos-duration="1800" data-aos-easing="ease-out-back" className="flex items-center justify-center flex-col md:flex-row row-gap-3">
               <CustomCalender onDateChange={handleDateChange} />
               <div className="time-buttons-container flex flex-col row-gap-2">
                 <h4 className="text-lg text-center font-semibold text-[#C72F48]">
@@ -281,7 +287,7 @@ const BookAppointment = () => {
                 {availableTimeSlots.map((time, index) => (
                   <Button
                     key={index}
-                    className={`time-button ${
+                    className={` time-button ${
                       selectedTime === time ? "selected" : ""
                     }`}
                     variant="outline-primary"
@@ -293,14 +299,23 @@ const BookAppointment = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-center mt-3">
-            <Button
-              className="bg-[#C72F48] hover:bg-[#a92339] border-[#C72F48] hover:border-[#a92339] w-[350px] text-2xl mb-2"
+          <div data-aos="fade-up" data-aos-duration="1800" data-aos-easing="ease-out-back" className="flex justify-center mt-3">
+            {/* <Button
+            // style={{borderRadius: "20px !important"}}
+              className="mt-4 rounded-3xl bg-[#C72F48] hover:bg-[#a92339] border-[#C72F48] hover:border-[#a92339] w-[350px] text-2xl mb-2"
               variant="primary"
               type="submit"
             >
               Submit
-            </Button>
+            </Button> */}
+            <Button
+            // className="bg-[#C72F48] hover:bg-[#a92339] border-[#C72F48] hover:border-[#a92339] w-[350px] text-2xl mb-2"
+            className='mt-3 bn4 border-none hover:border-none w-[350px] py-2 text-base'
+            variant="primary"
+            type="submit"
+            >
+            Submit
+          </Button>
           </div>
         </form>
       </div>
