@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './NavBar.css';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,27 +8,27 @@ function NavBar() {
   const location = useLocation(); // Get the current route
   const [navbarBackground, setNavbarBackground] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
-  let lastScrollY = window.scrollY;
-
-  // Update navbar background based on scroll position
-  const handleScroll = () => {
-    if (window.scrollY > 500) {
-      setNavbarBackground(true);
-    } else {
-      setNavbarBackground(false);
-    }
-
-    // Determine if we should show or hide the navbar
-    if (window.scrollY > lastScrollY) {
-      setShowNavbar(false); // User is scrolling down, hide the navbar
-    } else {
-      setShowNavbar(true); // User is scrolling up, show the navbar
-    }
-    lastScrollY = window.scrollY;
-  };
+  const lastScrollY = useRef(0); // Use useRef to store scroll position across renders
 
   // Effect to handle scroll changes on the home page
   useEffect(() => {
+    // Move handleScroll function inside the useEffect
+    const handleScroll = () => {
+      if (window.scrollY > 500) {
+        setNavbarBackground(true);
+      } else {
+        setNavbarBackground(false);
+      }
+
+      // Determine if we should show or hide the navbar
+      if (window.scrollY > lastScrollY.current) {
+        setShowNavbar(false); // User is scrolling down, hide the navbar
+      } else {
+        setShowNavbar(true); // User is scrolling up, show the navbar
+      }
+      lastScrollY.current = window.scrollY; // Update the lastScrollY ref
+    };
+
     if (location.pathname === '/') {
       window.addEventListener('scroll', handleScroll);
       setNavbarBackground(window.scrollY > 500); // Set initial background on page load
@@ -39,7 +39,7 @@ function NavBar() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [location.pathname]);
+  }, [location.pathname]); // No more need for handleScroll in the dependency array
 
   return (
     <Navbar
@@ -53,7 +53,7 @@ function NavBar() {
         <Navbar.Brand href="/">
           <img
             style={{ position: 'relative', bottom: '2px' }}
-            src={require('../../assets/buzzsols-logo.png')}
+            src={require('../../assets/buzzsols-logo-white.png')}
             width="100" // Increased logo size
             height="auto" // Maintain aspect ratio
             alt="Buzz Solutions logo"
@@ -85,7 +85,7 @@ function NavBar() {
             </Nav.Link>
             <Nav.Link
               as={Link}
-              to="/contact"
+              to="/contact-us"
               className="px-3"
             >
               <button className="btn gradient-button">Contact</button>

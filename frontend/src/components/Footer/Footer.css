@@ -1,5 +1,6 @@
 .lp-footer {
-    background-color: rgb(242, 242, 242);
+    background-color: rgb(23, 24, 32);
+    color: white;
     display: grid;
     grid-template-columns: 3fr 2fr 2fr;
     justify-content: space-between;
@@ -8,7 +9,7 @@
   a {
     font-size: 13px;
     text-decoration: none;
-    color: black;
+    color: white;
   }
   .footer-company,
   .footer-links {

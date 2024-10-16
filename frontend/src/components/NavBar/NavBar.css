@@ -32,7 +32,7 @@
 }
 
 .the-navbar.scrolled .nav-link {
-    color: #333333; /* Normal text color when navbar is scrolled */
+    color: white; /* Normal text color when navbar is scrolled */
 }
 
 .the-navbar.scrolled .nav-link span::after {
@@ -106,3 +106,30 @@
 .gradient-button:hover {
     background: linear-gradient(45deg, red, #171820); /* Reverse gradient on hover */
 }   
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+      position: absolute;
+      top: 60px; /* Adjust this according to your navbar height */
+      left: 0;
+      width: 100%;
+      background-color: #171820; /* Ensure the background matches the navbar */
+      z-index: 1000;
+      padding: 20px 5vw;
+    }
+  
+    .navbar-collapse .nav-link {
+      text-align: center; /* Center the links */
+      width: 100%; /* Make links full width */
+      margin: 10px 0; /* Add some space between links */
+    }
+  
+    .navbar-toggler {
+      margin-left: auto;
+    }
+  
+    .navbar-brand {
+      margin-right: auto;
+    }
+  }
+  
