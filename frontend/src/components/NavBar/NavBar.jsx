@@ -53,8 +53,8 @@ function NavBar() {
         <Navbar.Brand href="/">
           <img
             style={{ position: 'relative', bottom: '2px' }}
-            src={require('../../assets/buzzsols-logo.png')}
-            width="100" // Increased logo size
+            src={require('../../assets/WHITE-PNG.png')}
+            width="120" // Increased logo size
             height="auto" // Maintain aspect ratio
             alt="Buzz Solutions logo"
           />
@@ -88,7 +88,7 @@ function NavBar() {
               to="/contact"
               className="px-3"
             >
-              <button className="btn gradient-button">Contact</button>
+              <button className="btn gradient-button-2">Contact</button>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

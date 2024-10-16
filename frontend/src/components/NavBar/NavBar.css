@@ -105,4 +105,53 @@
 /* Optional: Add hover effect */
 .gradient-button:hover {
     background: linear-gradient(45deg, red, #171820); /* Reverse gradient on hover */
-}   
+}
+/* Button base style */
+.gradient-button-2 {
+    background: linear-gradient(45deg, #b30000, #2a2a2e); /* Deep red to dark gray gradient */
+    font-family: "Roboto", sans-serif;
+    font-weight: bold; /* Bold text */
+    color: white; /* Text color */
+    padding: 08px 24px; /* Increased padding for better aesthetics */
+    font-size: 18px; /* Larger font size */
+    border: none; /* No border */
+    border-radius: 30px; /* More rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+    position: relative; /* For inner shadow effect */
+    overflow: hidden; /* To hide the animation overflow */
+    z-index: 1; /* Set to ensure hover effect is visible */
+    transition: all 0.4s ease; /* Smooth transition for all properties */
+}
+
+/* Button text effect */
+.gradient-button-2::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.3), rgba(255, 0, 0, 0) 70%);
+    transition: all 0.5s;
+    opacity: 0;
+    z-index: -1;
+}
+
+/* Hover effect */
+.gradient-button-2:hover::before {
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
+
+/* Text glow animation on hover */
+.gradient-button-2:hover {
+    color: #ffcccc; /* Light red text color on hover */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6), 0 0 30px rgba(255, 0, 0, 0.4); /* Glowing effect */
+}
+
+/* Click effect */
+.gradient-button-2:active {
+    transform: scale(0.95); /* Scale down slightly on click */
+    background: linear-gradient(45deg, #8b0000, #1e1e21); /* Darken gradient slightly */
+}
