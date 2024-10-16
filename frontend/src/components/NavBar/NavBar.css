@@ -41,7 +41,6 @@
 
 .nav-link {
     font-size: 18px;
-    font-weight: bold;
     transition: color 0.3s ease;
 }
 
@@ -90,8 +89,7 @@
 }
 .gradient-button {
     background: linear-gradient(45deg, #171820, red);
-    font-family: "Roboto", sans-serif;
-    font-weight: bolder;/* Gradient background */
+    font-family: "Roboto", sans-serif;/* Gradient background */
     color: white; /* Text color */
     padding: 8px 16px; /* Padding for button */
     font-size: 16px;
