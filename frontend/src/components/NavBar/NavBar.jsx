@@ -54,8 +54,8 @@ function NavBar() {
           <img
             style={{ position: 'relative', bottom: '2px' }}
             src={require('../../assets/buzzsols-logo-white.png')}
-            width="100" // Increased logo size
-            height="auto" // Maintain aspect ratio
+            width="100" 
+            height="auto" 
             alt="Buzz Solutions logo"
           />
         </Navbar.Brand>
