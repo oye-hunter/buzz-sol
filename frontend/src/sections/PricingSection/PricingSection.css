@@ -3,6 +3,7 @@
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2.5rem;
   margin-top: 2rem;
+  color: white;
   
   /* Limit max columns to 3 */
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -15,15 +16,17 @@
 
 .pricing-card {
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-color: #8b1e30;
+  box-shadow: 10px 10px 10px rgba(177, 18, 18, 0.1);
   border-bottom: 4px solid #B93D4E; /* Permanent bottom border without transition */
   overflow: hidden; /* Prevent overflow of the pseudo-element */
-  transition: box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
+  transition: transform 0.3s ease-in-out; /* Smooth transition for transform and box-shadow */
 }
 
 .pricing-card:hover {
   /* transform: translateY(-5px);  */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Smooth box-shadow effect on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1); /* Smooth box-shadow effect on hover */
 }
 
 .price-button {

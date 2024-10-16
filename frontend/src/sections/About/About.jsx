@@ -19,13 +19,13 @@ const About = () => {
           style={{
             fontSize: '3rem',
             fontWeight: 'bold',
-            color: '#c72f48',
+            color: '#fff',
             textShadow: '2px 2px 8px rgba(0, 0, 0, 0.7)',
             borderRadius: '8px',
             padding: '10px 20px',
           }}
         >
-          At <span style={{ color: '#f5426f' }}>BUZZ SOLUTIONS,</span>
+          At <span style={{ color: '#c72f48' }}>BUZZ SOLUTIONS,</span>
         </h3>
         <p
           className='lg:text-lg text-sm font-light'
