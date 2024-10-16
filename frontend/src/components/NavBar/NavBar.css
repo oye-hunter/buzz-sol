@@ -26,10 +26,10 @@
 }
 
 /* When the navbar is scrolled */
-.the-navbar.scrolled {
+/* .the-navbar.scrolled { */
      /* Change to your desired background color */
      /* Optional shadow */
-}
+/* } */
 
 .the-navbar.scrolled .nav-link {
     color: white; /* Normal text color when navbar is scrolled */
@@ -88,7 +88,7 @@
     border-color: #333333;
 }
 .gradient-button {
-    background: linear-gradient(45deg, #171820, red);
+    background: linear-gradient(45deg, rgb(199, 47, 72), rgb(120, 27, 43));
     font-family: "Roboto", sans-serif;/* Gradient background */
     color: white; /* Text color */
     padding: 8px 16px; /* Padding for button */
@@ -102,7 +102,7 @@
 
 /* Optional: Add hover effect */
 .gradient-button:hover {
-    background: linear-gradient(45deg, red, #171820); /* Reverse gradient on hover */
+    background: linear-gradient(45deg, rgb(120, 27, 43), rgb(199, 47, 72)); /* Reverse gradient on hover */
 }   
 
 @media (max-width: 991.98px) {

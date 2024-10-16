@@ -153,7 +153,7 @@ const ContactUs = () => {
       <div className='h-[1px] bg-[#b1b1b1] mt-4'></div>
         </div>
       <form ref={formRef} onSubmit={sendEmail}>
-        <div  data-aos="fade-left" data-aos-duration="1800" data-aos-easing="ease-out-back" className="flex items-center justify-center column-gap-5 row-gap-3 flex-col-reverse lg:flex-row">
+        <div data-aos="fade-left" data-aos-duration="1800" data-aos-easing="ease-out-back" className="flex items-center justify-center column-gap-5 row-gap-3 flex-col-reverse lg:flex-row">
           <ThemeProvider theme={theme}>
             <div className="flex flex-col row-gap-3">
               <TextField
