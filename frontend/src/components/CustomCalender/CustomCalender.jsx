@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { DayPicker } from "react-day-picker";
-import { format } from "date-fns";
+// import { format } from "date-fns";
 import "react-day-picker/dist/style.css";
 import "./CustomCalender.css";
 
@@ -13,9 +13,9 @@ const CustomCalender = ({ onDateChange }) => { // Accept a prop to handle date c
 
   const [selected, setSelected] = useState(today);
 
-  const footer = selected
-    ? `Selected meeting timings for ${format(selected, "EEEE, MMMM do, yyyy")}`
-    : "Pick a day for the meeting.";
+  // const footer = selected
+  //   ? `Selected meeting timings for ${format(selected, "EEEE, MMMM do, yyyy")}`
+  //   : "Pick a day for the meeting.";
 
   const handleDateSelect = (date) => {
     setSelected(date);
@@ -33,7 +33,7 @@ const CustomCalender = ({ onDateChange }) => { // Accept a prop to handle date c
         { before: today }, // Disable all dates before today
         { dayOfWeek: [0, 6] } // Disable Sundays and Saturdays
       ]}
-      footer={footer}
+      // footer={footer}
     />
   );
 };

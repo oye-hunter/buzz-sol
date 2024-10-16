@@ -36,7 +36,7 @@
   animation: backgroundTransition 0.4s ease-out; /* Apply the background transition on hover */
   background: linear-gradient(45deg, #171820, rgb(199, 47, 72));
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  transform: scale(1.1); /* Smooth box-shadow effect on hover */
+  transform: scale(1.03); /* Smooth box-shadow effect on hover */
 }
 
 

@@ -1,32 +1,9 @@
-/* Updated CountUpBar.css */
 .countup-container {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap */
     margin: 10vh 0 0vh;
     background-color: rgb(199, 47, 72);
-    padding: 10px 5vw;
-    max-width: 100%; /* Constrain the container to the viewport width */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    box-sizing: border-box; /* Include padding in width calculation */
+    padding: 0 5vw;
 }
 
-/* Item Styling */
-.countup-item {
-    flex: 1 1 200px; /* Allow flex items to grow, shrink, and have a minimum width */
-    min-width: 150px;
-    text-align: center;
-    padding: 20px;
-}
-
-/* Separator Styling */
-.countup-separator {
-    background-color: whitesmoke;
-    width: 1px;
-    height: 40px;
-    margin: 0 20px;
-}
-
-/* CountUp Value and Label Styling */
 .countup-value {
     color: whitesmoke;
     margin: 20px 0 0;
@@ -37,11 +14,6 @@
     margin: 0 0 20px;
 }
 
-/* Responsive Adjustments */
-@media screen and (max-width: 768px) {
-    .countup-separator {
-        width: 40px;
-        height: 1px;
-        margin: 20px 0;
-    }
+.countup-separator {
+    background-color: whitesmoke;
 }
