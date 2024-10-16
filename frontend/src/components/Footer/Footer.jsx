@@ -28,9 +28,9 @@ const Footer = () => {
         <div className='my-2 text-sm'>
         <i class="fa-solid fa-phone mr-1" style={{color: "rgb(199, 47, 72)"}}></i> +92 321 5211814
         </div>
-        <div className='my-2 text-sm'>
-        <i class="fa-brands fa-linkedin mr-1" style={{color: "rgb(199, 47, 72)"}}></i> <a style={{color:"white", fontSize: "inherit"}} href="www.linkedin.com/company/buzz-sol/">Buzz Solutions</a>
-      </div>
+        <a style={{color:"white", fontSize: "inherit"}} href="https://www.linkedin.com/company/buzz-sol/"><div className='my-2 text-sm'>
+        <i class="fa-brands fa-linkedin mr-1" style={{color: "rgb(199, 47, 72)"}}></i> Buzz Solutions
+      </div></a>
         </div>
       </div>
     </div>

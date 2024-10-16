@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import "./ContactUs.css";
+import Footer from '../../components/Footer/Footer'
 import Button from "react-bootstrap/Button";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -229,6 +230,7 @@ const ContactUs = () => {
         </div>
       </form>
               </div>
+              <Footer/>
     </div>
   );
 };
