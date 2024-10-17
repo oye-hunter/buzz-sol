@@ -69,6 +69,10 @@
     .accelerate-title {
       font-size: 1.8rem;
     }
+    .accelerate-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
   
     .accelerate-description {
       font-size: 1rem;
