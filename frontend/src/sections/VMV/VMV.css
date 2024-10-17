@@ -1,33 +1,61 @@
 .vmv-container {
     margin: 10vh 5vw;
-    /* padding: 5vh 0; */
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns */
     grid-template-rows: repeat(3, auto); /* Three rows, with 'auto' height */
-    gap: 20px; /* Space between grid items */
-  }
-  
-  .our-vision {
-    grid-column: 1; /* Vision in the first column */
-    grid-row: 1; /* First row */
-    background-color: #c72f48; /* Just an example background */
-    padding: 20px;
+    gap: 30px; /* Space between grid items */
+}
+
+.our-vision,
+.our-value,
+.our-mission {
+    position: relative; /* Ensures that the box shadow applies relative to each element */
+    border-radius: 10px; /* Optional: Add rounded corners to enhance the glow effect */
+    transition: box-shadow 0.3s ease; /* Smooth transition on hover */
+}
+
+.our-vision {
+    grid-column: 1;
+    grid-row: 1;
+    background-color: #c72f48;
+    padding: 30px;
     color: white;
-  }
-  
-  .our-value {
-    grid-column: 2; /* Value in the second column */
+    box-shadow: 0 0 10px 3px rgba(199, 47, 72, 0.6); /* Subtle outer glow with matching color */
+}
+
+.our-value {
+    grid-column: 2;
     grid-row: span 2; /* Spans 2 rows */
-    background-color: #4755c2;
-    padding: 20px;
+    background-image: url('https://i.pinimg.com/564x/17/c6/d1/17c6d150625ea0952b4040d81e442809.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 30px;
     color: white;
-  }
-  
-  .our-mission {
-    grid-column: 1; /* Mission in the first column */
-    grid-row: 2; /* Below the vision */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.6); /* Darker glow for image background */
+}
+
+.our-mission {
+    grid-column: 1;
+    grid-row: 2;
     background-color: #3a3a3a;
-    padding: 20px;
+    padding: 30px;
     color: white;
-  }
-  
+    box-shadow: 0 0 10px 3px rgba(58, 58, 58, 0.6); /* Subtle outer glow with matching gray */
+}
+
+/* Glow effect on hover with matching colors */
+.our-vision:hover {
+    box-shadow: 0 0 15px 5px rgba(199, 47, 72, 0.8); /* Stronger glow with same color */
+}
+
+.our-value:hover {
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.8); /* Stronger glow with darker black */
+}
+
+.our-mission:hover {
+    box-shadow: 0 0 15px 5px rgba(58, 58, 58, 0.8); /* Stronger glow with same gray */
+}
