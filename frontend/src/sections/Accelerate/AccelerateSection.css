@@ -46,8 +46,9 @@
   }
   
   .image-tilt {
-    width: 200px;
+    width: 400px;
     height: auto;
+    padding-top: 20px;
     margin: 0 15px;
     border-radius: 10px;
     transform: rotate(-5deg); /* Tilt the image */
@@ -60,22 +61,71 @@
   
   @media (max-width: 768px) {
     .image-tilt {
-      width: 150px;
+      width: 220px;
       margin: 0 10px;
     }
+    .accelerate-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
   }
-  
-  @media (max-width: 425px) {
+  @media  (max-width: 320px) {
     .accelerate-title {
       font-size: 1.8rem;
+    }
+    .accelerate-button {
+        padding: 10px 20px;
+        font-size: 0.69rem;
     }
   
     .accelerate-description {
       font-size: 1rem;
     }
+    .accelerate-images {
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    
   
     .image-tilt {
-      width: 120px;
+      width: 400px;
+      height: auto;
+      margin: 5px 15px;
+      border-radius: 10px;
+      transform: rotate(-5deg); /* Tilt the image */
+      transition: transform 0.3s ease;
+      }
+    
+  }
+  
+  @media (min-width: 321px) and (max-width: 425px) {
+    .accelerate-title {
+      font-size: 1.8rem;
     }
+    .accelerate-button {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+  
+    .accelerate-description {
+      font-size: 1rem;
+    }
+    .accelerate-images {
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .image-tilt {
+      width: 400px;
+      height: auto;
+      margin: 5px 15px;
+      border-radius: 10px;
+      transform: rotate(-5deg); /* Tilt the image */
+      transition: transform 0.3s ease;
+      }
+    
   }
   

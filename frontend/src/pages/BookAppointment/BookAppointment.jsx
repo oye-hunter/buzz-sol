@@ -15,6 +15,7 @@ import { useLocation } from 'react-router-dom'; // Import useLocation
 import { servicesPricingData } from '../../sections/PricingSection/PricingSection'; 
 import AOS from "aos"; 
 import "aos/dist/aos.css";
+import MapSection from "../../sections/Map/MapSection";
 // import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const BookAppointment = () => {
@@ -196,7 +197,7 @@ const BookAppointment = () => {
           Book An <span style={{ color: "rgb(199,47,72)" }}>Appointment</span>
         </h3>
         <form ref={formRef} onSubmit={sendEmail}>
-          <div className="flex items-center justify-evenly column-gap-5 row-gap-3 flex-col-reverse lg:flex-row text-white pt-2">
+          <div className="flex items-center justify-evenly column-gap-5 row-gap-3 flex-col-reverse lg:flex-row text-white pt-2" style={{marginTop:'75px'}}>
             <ThemeProvider theme={theme}>
               <div data-aos="fade-right" data-aos-duration="1800" data-aos-easing="ease-out-back" className="flex flex-col row-gap-2 text-white">
                 <TextField
@@ -319,6 +320,7 @@ const BookAppointment = () => {
           </div>
         </form>
       </div>
+      <MapSection />
       <Footer />
     </>
   );

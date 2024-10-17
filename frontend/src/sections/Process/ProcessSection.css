@@ -86,17 +86,23 @@
 /* Media query for tablets and large mobiles */
 /* Media query for two circles per row between 425px and 768px */
 @media (min-width: 426px) and (max-width: 768px) {
-    .process-right {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* Two circles per row */
-      gap: 20px;
-      justify-items: center; /* Center the items */
-    }
-  
-    .process-circle {
-      width: 200px; /* Smaller circle for mid-sized screens */
-      height: 200px;
-    }
+  .process-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .process-right {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* One circle per row */
+    gap: 10px;
+    justify-items: center;
+  }
+
+  .process-circle {
+    width: 220px;
+    height: 220px;
+  }
+
   
     .circle-number {
       font-size: 2rem; /* Adjusted for smaller circles */
@@ -107,7 +113,7 @@
     }
   
     .circle-description {
-      font-size: 0.8rem; /* Smaller description */
+      font-size: 0.66rem; /* Smaller description */
     }
   }
   
@@ -139,6 +145,6 @@
     }
   
     .circle-description {
-      font-size: 0.75rem; /* Smaller description */
+      font-size: 0.45rem; /* Smaller description */
     }
   }
