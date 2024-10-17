@@ -141,7 +141,7 @@ const PricingSection = () => {
             >
               <div 
                 className='price-button w-2/3 rounded-full py-1 my-2 text-center mt-auto'
-                onMouseOver={() => setHoveredIndex(index)}
+                onMouseOver={() => setHoveredIndex(index) }
                 onMouseOut={() => setHoveredIndex(null)}
               >
                 {hoveredIndex === index ? (
