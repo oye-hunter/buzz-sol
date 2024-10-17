@@ -3,6 +3,7 @@ import "./Services.css";
 import PricingCard from "../../sections/PricingSection/PricingSection";
 import Footer from '../../components/Footer/Footer';
 import ProcessSection from "../../sections/Process/ProcessSection";
+import AccelerateSection from "../../sections/Accelerate/AccelerateSection";
 const Services = () => {
   return (<>
   
@@ -10,7 +11,9 @@ const Services = () => {
         <PricingCard/>
     </div>
     <ProcessSection/>
-        <Footer/>
+    <AccelerateSection/>
+      
+    <Footer/>
   </>
   );
 };
