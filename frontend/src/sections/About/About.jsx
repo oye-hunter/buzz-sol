@@ -2,6 +2,7 @@ import React from 'react';
 import './About.css';
 import myGif from '../../assets/myGif2.gif';
 import { Link } from 'react-router-dom';
+
 const About = () => {
   return (
     <div
@@ -13,7 +14,7 @@ const About = () => {
         position: 'relative',
       }}
     >
-      <div className='border1' style={{ maxWidth: '600px', marginBottom: '20px'}}>
+      <div className='border1' style={{ maxWidth: '600px', marginBottom: '20px' }}>
         <h3
           className='text-title'
           style={{
@@ -40,26 +41,22 @@ const About = () => {
         >
           We fuse innovation with energy, delivering cutting-edge technology that creates a buzz in the digital world. Our solutions are designed to power businesses forward, transforming ideas into impactful realities.
         </p>
-          <div className='read-more-button'>
-            <Link to="https://www.linkedin.com/company/buzz-sol" className="text-decoration-none text-inherit">
-              <span>
-                Discover More
-              </span>
-            </Link>
-          </div>
-        
+        <div className='read-more-button'>
+          <Link to="https://www.linkedin.com/company/buzz-sol" className="text-decoration-none text-inherit">
+            <span>Discover More</span>
+          </Link>
+        </div>
       </div>
       <div style={{ position: 'relative', display: 'inline-block', borderRadius: '20em' }}>
         <img
           src={myGif}
           style={{
-            borderRadius: '20%',
+            borderRadius: '20%', // Retain this
             width: '550px', // Set a fixed width
             height: 'auto', // Maintain aspect ratio
             objectFit: 'cover',
             zIndex: '1',
             boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)',
-            borderRadius: '10px', // Optional: To soften the edges
           }}
           alt='Buzz Solutions'
         />
@@ -76,13 +73,8 @@ const About = () => {
             zIndex: '2',
           }}
         ></div>
-        
       </div>
-      
     </div>
-    
-    
-    
   );
 };
 

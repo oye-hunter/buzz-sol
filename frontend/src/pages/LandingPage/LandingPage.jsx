@@ -9,6 +9,7 @@ import CountUpBar from '../../components/CountUpBar/CountUpBar';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import ReviewCarousel from '../../components/ReviewCarousel/ReviewCarousel';
+import VMV from '../../sections/VMV/VMV';
 
 /* App.css */
 
@@ -77,6 +78,7 @@ const LandingPage = () => {
       </div>
       <About/> 
       <Services/>
+      <VMV/>
       <ReviewCarousel/> 
       {/* <Products/> */}
       <CountUpBar/>
