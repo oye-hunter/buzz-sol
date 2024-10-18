@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./LandingPage.css";
 import About from '../../sections/About/About';
@@ -16,6 +16,12 @@ import VMV from '../../sections/VMV/VMV';
 
 
 const LandingPage = () => {
+
+  // Scroll to top when the component is mounted
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  }, []); // Empty dependency array to ensure this runs only once when the component mounts
+
   return (
     <div
       style={{

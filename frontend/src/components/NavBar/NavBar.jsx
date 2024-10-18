@@ -8,11 +8,11 @@ function NavBar() {
   const location = useLocation(); // Get the current route
   const [navbarBackground, setNavbarBackground] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
+  const [expanded, setExpanded] = useState(false); // Track whether navbar is expanded
   const lastScrollY = useRef(0); // Use useRef to store scroll position across renders
 
   // Effect to handle scroll changes on the home page
   useEffect(() => {
-    // Move handleScroll function inside the useEffect
     const handleScroll = () => {
       if (window.scrollY > 500) {
         setNavbarBackground(true);
@@ -29,7 +29,7 @@ function NavBar() {
       lastScrollY.current = window.scrollY; // Update the lastScrollY ref
     };
 
-    if (location.pathname === '/'||'/services'||'/book-an-appointment'||'/contact-us' ) {
+    if (['/', '/services', '/book-an-appointment', '/contact-us'].includes(location.pathname)) {
       window.addEventListener('scroll', handleScroll);
       setNavbarBackground(window.scrollY > 500); // Set initial background on page load
     } else {
@@ -39,7 +39,26 @@ function NavBar() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [location.pathname]); // No more need for handleScroll in the dependency array
+  }, [location.pathname]);
+
+  // Function to handle link click and close the navbar on mobile
+  const handleLinkClick = () => {
+    setExpanded(false); // Collapse the navbar after clicking a link
+  };
+
+  // Handle clicking outside the navbar to close it
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (expanded && !event.target.closest('.navbar')) {
+        setExpanded(false); // Close navbar if clicking outside of it
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [expanded]);
 
   return (
     <Navbar
@@ -47,6 +66,8 @@ function NavBar() {
       className={`the-navbar ${
         navbarBackground || location.pathname !== '/' ? 'scrolled' : 'transparent'
       } ${showNavbar ? 'show' : 'hide'}`}
+      expanded={expanded} // Control the expanded state
+      onToggle={() => setExpanded(!expanded)} // Toggle the expanded state when clicking the toggle button
       style={{ padding: '20px 5vw', zIndex: '1000' }}
     >
       <div className="d-flex align-items-center w-100">
@@ -54,8 +75,8 @@ function NavBar() {
           <img
             style={{ position: 'relative', bottom: '2px' }}
             src={require('../../assets/buzzsols-logo-white.png')}
-            width="100" 
-            height="auto" 
+            width="100"
+            height="auto"
             alt="Buzz Solutions logo"
           />
         </Navbar.Brand>
@@ -65,6 +86,7 @@ function NavBar() {
             <Nav.Link
               as={Link}
               to="/"
+              onClick={handleLinkClick} // Close the navbar after clicking the link
               className={`px-3 ${location.pathname === '/' ? 'active' : ''}`}
             >
               <span>Home</span>
@@ -72,6 +94,7 @@ function NavBar() {
             <Nav.Link
               as={Link}
               to="/services"
+              onClick={handleLinkClick} // Close the navbar after clicking the link
               className={`px-3 ${location.pathname === '/services' ? 'active' : ''}`}
             >
               <span>Services</span>
@@ -79,6 +102,7 @@ function NavBar() {
             <Nav.Link
               as={Link}
               to="/book-an-appointment"
+              onClick={handleLinkClick} // Close the navbar after clicking the link
               className={`px-3 ${location.pathname === '/book-an-appointment' ? 'active' : ''}`}
             >
               <span>Appointment</span>
@@ -86,6 +110,7 @@ function NavBar() {
             <Nav.Link
               as={Link}
               to="/contact-us"
+              onClick={handleLinkClick} // Close the navbar after clicking the link
               className="px-3"
             >
               <button className="btn gradient-button">Contact</button>

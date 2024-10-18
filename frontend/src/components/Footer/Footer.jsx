@@ -19,8 +19,13 @@ const Footer = () => {
     });
   };
 
+  // Function to scroll to the top of the page
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <div className="lp-footer p-14">
+    <div className="lp-footer py-14">
       <div className="footer-den-info">
         <img
           src={require("../../assets/buzzsols-logo-white.png")}
@@ -35,10 +40,18 @@ const Footer = () => {
         <h5 className="font-medium mb-2" style={{ color: "rgb(199, 47, 72)" }}>
           Quick Links
         </h5>
-        <Link to="/" className="pt-1">Home</Link>
-        <Link to="/services" className="pt-1">Services</Link>
-        <Link to="/book-an-appointment" className="pt-1">Book An Appointment</Link>
-        <Link to="/contact-us" className="pt-1">Contact Us</Link>
+        <Link to="/" className="pt-1" onClick={scrollToTop}>
+          Home
+        </Link>
+        <Link to="/services" className="pt-1" onClick={scrollToTop}>
+          Services
+        </Link>
+        <Link to="/book-an-appointment" className="pt-1" onClick={scrollToTop}>
+          Book An Appointment
+        </Link>
+        <Link to="/contact-us" className="pt-1" onClick={scrollToTop}>
+          Contact Us
+        </Link>
       </div>
       <div className="footer-follow-us">
         <h5 className="font-medium mb-2" style={{ color: "rgb(199, 47, 72)" }}>
@@ -49,17 +62,24 @@ const Footer = () => {
             className="my-2 mt-3 text-sm cursor-pointer"
             onClick={() => handleCopy("buzzsols1122@gmail.com")}
           >
-            <i className="fa-solid fa-envelope mr-1" style={{ color: "rgb(199, 47, 72)" }}></i> buzzsols1122@gmail.com
+            <i className="fa-solid fa-envelope mr-1" style={{ color: "rgb(199, 47, 72)" }}></i>{" "}
+            buzzsols1122@gmail.com
           </div>
           <div
             className="my-2 text-sm cursor-pointer"
             onClick={() => handleCopy("+92 321 5211814")}
           >
-            <i className="fa-solid fa-phone mr-1" style={{ color: "rgb(199, 47, 72)" }}></i> +92 321 5211814
+            <i className="fa-solid fa-phone mr-1" style={{ color: "rgb(199, 47, 72)" }}></i>{" "}
+            +92 321 5211814
           </div>
           <div className="my-2 text-sm">
             <i className="fa-brands fa-linkedin mr-1" style={{ color: "rgb(199, 47, 72)" }}></i>
-            <a style={{ color: "white", fontSize: "inherit" }} href="https://www.linkedin.com/company/buzz-sol/" target="_blank" rel="noopener noreferrer">
+            <a
+              style={{ color: "white", fontSize: "inherit" }}
+              href="https://www.linkedin.com/company/buzz-sol/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Buzz Solutions
             </a>
           </div>

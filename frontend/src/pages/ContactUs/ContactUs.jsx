@@ -34,6 +34,11 @@ const ContactUs = () => {
   // Ref for the form
   const formRef = useRef();
 
+  // Scroll to top when the component is mounted
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  }, []); // Empty dependency array to ensure this runs only once when the component mounts
+
   // Handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;

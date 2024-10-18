@@ -15,7 +15,7 @@ import { useLocation } from 'react-router-dom'; // Import useLocation
 import { servicesPricingData } from '../../sections/PricingSection/PricingSection'; 
 import AOS from "aos"; 
 import "aos/dist/aos.css";
-import MapSection from "../../sections/Map/MapSection";
+// import MapSection from "../../sections/Map/MapSection";
 // import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const BookAppointment = () => {
@@ -43,6 +43,12 @@ const BookAppointment = () => {
   });
 
   const formRef = useRef();
+
+
+  // Scroll to top when the component is mounted
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  }, []); // Empty dependency array to ensure this runs only once when the component mounts
 
   // Function to fetch available time slots for the selected date
   const fetchAvailableTimeSlots = async (selectedDate) => {
