@@ -26,7 +26,7 @@
 .our-value {
     grid-column: 2;
     grid-row: span 2; /* Spans 2 rows */
-    background-image: url('https://i.pinimg.com/564x/17/c6/d1/17c6d150625ea0952b4040d81e442809.jpg');
+    background-image: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGw5OW14a3V5ZHRoczV1amsxOGppNGw1MHVvNDNuMm9udzU1NmZ2biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7b8jdNUoFBdcoILjjv/giphy.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
