@@ -320,7 +320,6 @@ const BookAppointment = () => {
           </div>
         </form>
       </div>
-      <MapSection />
       <Footer />
     </>
   );

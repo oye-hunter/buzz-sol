@@ -6,11 +6,13 @@ import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import InputAdornment from "@mui/material/InputAdornment";
 import Tooltip from "@mui/material/Tooltip";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import emailjs from "@emailjs/browser"; // Import emailjs
 import AOS from "aos"; 
 import "aos/dist/aos.css";
+import MapSection from "../../sections/Map/MapSection";
 
 const ContactUs = () => {
   // State for form data
@@ -230,6 +232,7 @@ const ContactUs = () => {
         </div>
       </form>
               </div>
+              <MapSection/>
               <Footer/>
     </div>
   );
