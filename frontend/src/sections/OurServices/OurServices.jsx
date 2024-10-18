@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaCode, FaMobileAlt, FaBrain, FaCogs, FaVideo, FaPaintBrush } from 'react-icons/fa'; // Importing icons
 import "./OurServices.css";
+import { Link } from 'react-router-dom';
 
 const servicesData = [
   {
@@ -44,6 +45,7 @@ const OurServices = () => {
         </h3>
         <div className="our-services-card-container">
           {servicesData.map((service, index) => (
+            <Link to="/book-an-appointment">
             <div key={index} className="our-services-card text-center sm:text-xl text-lg flex flex-col justify-center items-center">
               <div className="icon text-4xl mb-3">
                 {service.icon} {/* Display the icon */}
@@ -51,6 +53,7 @@ const OurServices = () => {
               <h5>{service.title}</h5>
               <p className="mt-2 text-center font-light sm:text-sm text-xs">{service.description}</p>
             </div>
+            </Link>
           ))}
         </div>
       </div>
