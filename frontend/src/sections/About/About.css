@@ -20,7 +20,7 @@
   display: inline-block;
   margin-left: 10px;
   padding: 0.75em 1.5em;
-  background: linear-gradient(45deg, red, #171820);
+  background: linear-gradient(45deg, rgb(199, 47, 72), rgb(120, 27, 43));
   color: #ffffff;
   border: none;
   border-radius: 2em;
@@ -35,7 +35,7 @@
 }
 
 .read-more-button:hover {
-  background: linear-gradient(45deg, #171820, red) scroll 0 0;
+  background: linear-gradient(45deg, rgb(120, 27, 43), rgb(199, 47, 72)) scroll 0 0;
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }

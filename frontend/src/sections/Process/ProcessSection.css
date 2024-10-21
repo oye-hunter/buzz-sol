@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    margin: 10vh 5vw;
     background-color: #171820;
     margin-top: 80px; /* Dark background color */
   }

@@ -15,6 +15,9 @@ import { useLocation } from 'react-router-dom'; // Import useLocation
 import { servicesPricingData } from '../../sections/PricingSection/PricingSection'; 
 import AOS from "aos"; 
 import "aos/dist/aos.css";
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert'; // Import Alert for styling Snackbar messages
+
 // import MapSection from "../../sections/Map/MapSection";
 // import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -41,6 +44,9 @@ const BookAppointment = () => {
     note: "",
     serviceName: serviceTitle || "", // Populate with received service title
   });
+  const [bookingStatus, setBookingStatus] = useState(""); // Set booking status message
+  const [StatusSeverity, setStatusSeverity] = useState(""); // Set booking status message
+  const [isSnackbarOpen, setIsSnackbarOpen] = useState(false); // Snackbar visibility state
 
   const formRef = useRef();
 
@@ -60,7 +66,9 @@ const BookAppointment = () => {
       if (response.status === 200) {
         setAvailableTimeSlots(response.data.availableTimes);
       } else {
-        alert('Failed to fetch available time slots. Please try again.');
+        setBookingStatus('Failed to fetch available time slots. Please try again.');
+        setStatusSeverity("error"); 
+        setIsSnackbarOpen(true); // Open Snackbar if there's an error
       }
     } catch (error) {
       console.error('Error fetching available time slots:', error);
@@ -85,13 +93,17 @@ const BookAppointment = () => {
     try {
       const response = await axios.post('http://localhost:5000/api/appointments', appointmentData);
       if (response.status === 201) {
-        alert("Appointment successfully booked");
+        setBookingStatus("Appointment successfully booked");
+        setStatusSeverity("success"); 
       } else {
-        alert("Failed to book the appointment. Please try again.");
+        setBookingStatus("Failed to book the appointment. Please try again.");
+        setStatusSeverity("error"); 
       }
     } catch (error) {
       console.error('Error saving appointment:', error);
-      alert("Failed to book the appointment. Please try again.");
+      setBookingStatus("Failed to book the appointment. Please try again.");
+      setStatusSeverity("error"); 
+      setIsSnackbarOpen(true); // Open Snackbar on error
     }
   };
 
@@ -99,7 +111,9 @@ const BookAppointment = () => {
     e.preventDefault();
     
     if (!formData.fullName || !formData.email || !formData.phone || !formData.serviceName || !selectedDate || !selectedTime) {
-      alert("Please fill all required fields");
+      setBookingStatus("Please fill all required fields.");
+      setStatusSeverity("warning"); 
+      setIsSnackbarOpen(true); // Open Snackbar if validation fails
       return; // Prevent submission if fields are not filled
     }
 
@@ -139,15 +153,24 @@ const BookAppointment = () => {
       .then(
         (result) => {
           console.log("EmailJS result:", result);
-          alert("Appointment successfully booked!");
+          setBookingStatus("Appointment successfully booked!");
+          setStatusSeverity("success"); 
+          setIsSnackbarOpen(true); // Open Snackbar on success
           sendDataToBackend(appointmentData);
         },
         (error) => {
           console.error("EmailJS error:", error);
-          alert("Failed to send the email. Please try again.");
+          setBookingStatus("Failed to send the email. Please try again.");
+          setStatusSeverity("error"); 
+          setIsSnackbarOpen(true); // Open Snackbar on error
         }
       );
-  };
+    };
+
+// Add the handleCloseSnackbar function
+const handleCloseSnackbar = () => {
+  setIsSnackbarOpen(false);
+};
 
   const theme = createTheme({
     palette: {
@@ -202,6 +225,10 @@ const BookAppointment = () => {
         <h3 data-aos="fade-down" data-aos-duration="1800" data-aos-easing="ease-out-back" className="2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl text-2xl text-center font-semibold mt-4 mb-4 text-white">
           Book An <span style={{ color: "rgb(199,47,72)" }}>Appointment</span>
         </h3>
+        {/* {bookingStatus &&  <Snackbar
+        autoHideDuration={5000}
+        message={bookingStatus}
+      />} */}
         <form ref={formRef} onSubmit={sendEmail}>
           <div className="flex items-center justify-evenly column-gap-5 row-gap-3 flex-col-reverse lg:flex-row text-white pt-2" style={{marginTop:'75px'}}>
             <ThemeProvider theme={theme}>
@@ -326,6 +353,17 @@ const BookAppointment = () => {
           </div>
         </form>
       </div>
+      {/* Snackbar for notifications */}
+      <Snackbar
+          open={isSnackbarOpen}
+          autoHideDuration={6000}
+          onClose={handleCloseSnackbar}
+          anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        >
+          <Alert onClose={handleCloseSnackbar} severity={StatusSeverity} sx={{ width: '100%' }}>
+            {bookingStatus}
+          </Alert>
+        </Snackbar>
       <Footer />
     </>
   );

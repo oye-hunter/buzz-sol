@@ -136,6 +136,7 @@ const ContactUs = () => {
   
 
   return (
+    <>
     <div className='contact-us-container' style={{ color: "whitesmoke"}}>
 
       <h3 data-aos="fade-down" data-aos-duration="1800" data-aos-easing="ease-out-back" className="2xl:text-6xl xl:text-5xl lg:text-4xl text-3xl font-semibold text-center mt-16">
@@ -238,8 +239,9 @@ const ContactUs = () => {
       </form>
               </div>
               <MapSection/>
-              <Footer/>
     </div>
+              <Footer/>
+              </>
   );
 };
 
