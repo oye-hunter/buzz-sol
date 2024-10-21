@@ -1,2 +1,2 @@
-Repository for the BuzzSol Website
-Tech Stack : MERN Stack
+*Repository for the BuzzSol Website*
+
