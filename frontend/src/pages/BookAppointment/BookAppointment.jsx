@@ -130,7 +130,7 @@ const BookAppointment = () => {
       amount: serviceAmount
     };
 
-    const recipients = `${formData.email}, hozefarauf@gmail.com`;
+    const recipients = `buzzsol1122@gmail.com`;
     const templateParams = {
       serviceName: formData.serviceName,
       fullName: formData.fullName,
